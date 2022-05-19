@@ -57,6 +57,10 @@ public class TileGenerator : MonoBehaviour
         UpdateCameraSize();
         StartFillTiles();
         CreateBarriers();
+        if (!MatchManager.CheckStepAvailable())
+        {
+            _tileGenerator.RefillTiles();
+        }
     }
 
     public void GenerateTilesByConfig(LevelConfig config)
@@ -117,6 +121,10 @@ public class TileGenerator : MonoBehaviour
             }
         }
         QuestsManager.SpawnBariersQuest();
+        if (!MatchManager.CheckStepAvailable())
+        {
+            _tileGenerator.RefillTiles();
+        }
     }
 
     public void AlignObjects()
@@ -305,6 +313,29 @@ public class TileGenerator : MonoBehaviour
                 }
             }
         _tileGenerator.FillEmptyTiles();
+        if (!MatchManager.CheckStepAvailable())
+        {
+            _tileGenerator.RefillTiles();
+        }
+    }
+
+    public void RefillTiles()
+    {
+        for(int i = 0; i < X; i++)
+        {
+            for(int j = 0; j < Y; j++)
+            {
+                if (AllBariers[i, j] != null) continue;
+                MatchManager.DestroyAfterAnim(AllItems[i, j]);
+                AllItems[i, j] = Instantiate(ItemsPrefabs[Random.Range(0, ItemsPrefabs.Count)], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
+                AllItems[i, j].transform.localScale = Vector3.zero;
+                AllItems[i, j].GetComponent<Item>().X = i;
+                AllItems[i, j].GetComponent<Item>().Y = j;
+                AllItems[i, j].transform.DOScale(Vector3.one, 0.5f);
+            }
+        }
+        if (!MatchManager.CheckStepAvailable())
+            RefillTiles();
     }
     
     public static void UpdateCameraSize()
