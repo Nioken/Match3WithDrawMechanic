@@ -20,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     {
         TileGenerator.UpdateCameraSize();
         MatchManager.SelectedItems = new List<Item>();
+        Debug.Log(MatchManager.SelectedItems.Count);
         _UIManager.UpdateSteps(PlayerSteps);
     }
 
@@ -79,30 +80,32 @@ public class PlayerControl : MonoBehaviour
                     }
                 }
             }
-            if(Input.touches[0].phase == TouchPhase.Ended)
-            {
-                LineRenderer.positionCount = 0;
-                MatchManager.CheckMatch();
-                _UIManager.UpdateSteps(PlayerSteps);
-                if (PlayerSteps == 0)
+                if (Input.touches[0].phase == TouchPhase.Ended)
                 {
-                    if (QuestsManager.isQuestsCompleted())
+                    LineRenderer.positionCount = 0;
+                    MatchManager.CheckMatch();
+                    _UIManager.UpdateSteps(PlayerSteps);
+                    if (PlayerSteps == 0)
                     {
-                        _UIManager.ShowWinUI();
+                        if (QuestsManager.isQuestsCompleted())
+                        {
+                            _UIManager.ShowWinUI();
+                        }
+                        else
+                        {
+                            _UIManager.ShowLoseUI();
+                        }
                     }
                     else
                     {
-                        _UIManager.ShowLoseUI();
+                        if (QuestsManager.isQuestsCompleted())
+                        {
+                            _UIManager.ShowWinUI();
+                        }
                     }
                 }
-                else
-                {
-                    if (QuestsManager.isQuestsCompleted())
-                    {
-                        _UIManager.ShowWinUI();
-                    }
-                }
-            }
         }
+
+        
     }
 }

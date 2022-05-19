@@ -237,12 +237,13 @@ public class MatchManager : MonoBehaviour
         {
             for (int i = 0; i < SelectedItems.Count; i++)
             {
-                if (SelectedItems[i].IsBonus)
+                if (SelectedItems[i] != null && SelectedItems[i].IsBonus)
                     ActivateBonus(SelectedItems[i]);
             }
             for (int i = 0; i < SelectedItems.Count; i++)
             {
-                SelectedItems[i].transform.DOScale(1, 0.5f);
+                if(SelectedItems[i] != null)
+                    SelectedItems[i].transform.DOScale(1, 0.5f);
             }
             SelectedItems.Clear();
             CurrentTag = null;
@@ -253,7 +254,7 @@ public class MatchManager : MonoBehaviour
             QuestsManager.UpdateScoreProgress(SelectedItems.Count);
             for (int i = 0; i < SelectedItems.Count; i++)
             {
-                if (SelectedItems[i].IsBonus)
+                if (SelectedItems != null && SelectedItems[i].IsBonus)
                     ActivateBonus(SelectedItems[i]);
             }
             for (int t = 0; t < SelectedItems.Count; t++)
@@ -262,14 +263,15 @@ public class MatchManager : MonoBehaviour
                 {
                     for (int j = 0; j < TileGenerator.Y; j++)
                     {
-                        if (SelectedItems[t] == TileGenerator.AllItems[i, j])
+                        if (SelectedItems[t] != null && SelectedItems[t] == TileGenerator.AllItems[i, j])
                         {
                             QuestsManager.UpdateItemProgress(TileGenerator.AllItems[i, j]);
                             TileGenerator.AllItems[i, j] = null;
                         }
                     }
                 }
-                DestroyAfterAnim(SelectedItems[t]);
+                if(SelectedItems[t] != null)
+                    DestroyAfterAnim(SelectedItems[t]);
             }
             if (SelectedItems.Count >= 5 && SelectedItems.Count <= 7)
             {
