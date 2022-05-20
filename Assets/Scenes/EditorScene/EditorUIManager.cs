@@ -15,9 +15,15 @@ public class EditorUIManager : MonoBehaviour
     [SerializeField] private TMP_Text HeightText;
     [SerializeField] public Slider WidthSlider;
     [SerializeField] private TMP_Text WidthText;
-
-    [SerializeField] public static EditorUIManager _editorUIManager;
     public TMP_InputField StepsField;
+    [SerializeField] public static EditorUIManager _editorUIManager;
+
+    [Header("UI  вествов")]
+    [SerializeField] public GameObject QuestSelectUI;
+    [SerializeField] public Toggle ScoreQuestToggle;
+    [SerializeField] public Toggle ItemQuestToggle;
+    [SerializeField] public Toggle BarrierQuestToggle;
+
 
     private void OnEnable()
     {
@@ -54,6 +60,50 @@ public class EditorUIManager : MonoBehaviour
     public void ToMenu()
     {
         SceneManager.LoadScene("MenuScene");
+    }
+
+    public void ShowQuestSelect()
+    {
+        QuestSelectUI.SetActive(true);
+    }
+    
+    public void UpdateScoreQuestToggle()
+    {
+        if (ScoreQuestToggle.isOn)
+        {
+            PlayerPrefs.SetInt("ScoreQuest", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("ScoreQuest", 0);
+        }
+    } 
+    public void UpdateItemQuestToggle()
+    {
+        if (ItemQuestToggle.isOn)
+        {
+            PlayerPrefs.SetInt("ItemQuest", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("ItemQuest", 0);
+        }
+    }
+    public void UpdateBarrierQuestToggle()
+    {
+        if (BarrierQuestToggle.isOn)
+        {
+            PlayerPrefs.SetInt("BarrierQuest", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("BarrierQuest", 0);
+        }
+    }
+
+    public void HideQuestSelect()
+    {
+        QuestSelectUI.SetActive(false);
     }
 
     public void PlayWithConfig()

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
   isConfigured: 1
-  Steps: 50
-  X: 5
-  Y: 6
+  Steps: 100
+  X: 6
+  Y: 9
+  ScoreQuest: 1
+  ItemQuest: 1
+  BarrierQuest: 1

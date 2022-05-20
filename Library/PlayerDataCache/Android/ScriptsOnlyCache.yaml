@@ -21,6 +21,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
@@ -36,8 +37,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.GroupBrush
     - UnityEditor.Tilemaps.LineBrush
     - UnityEditor.Tilemaps.RandomBrush
-    Unity.Mobile.AndroidLogcat.Editor.dll:
-    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -51,8 +50,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -151,6 +152,12 @@ ScriptsOnlyBuild:
     methodName: PlayWithConfig
   - assembly: Assembly-CSharp
     fullTypeName: EditorUIManager
+    methodName: UpdateBarrierQuestToggle
+  - assembly: Assembly-CSharp
+    fullTypeName: EditorTileGenerator
+    methodName: UpdateConfig
+  - assembly: Assembly-CSharp
+    fullTypeName: EditorUIManager
     methodName: UpdateWidth
   - assembly: Assembly-CSharp
     fullTypeName: EditorTileGenerator
@@ -179,6 +186,24 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: EditorTileGenerator
     methodName: UpdateSize
+  - assembly: Assembly-CSharp
+    fullTypeName: EditorUIManager
+    methodName: HideQuestSelect
+  - assembly: Assembly-CSharp
+    fullTypeName: EditorUIManager
+    methodName: ShowQuestSelect
+  - assembly: Assembly-CSharp
+    fullTypeName: EditorUIManager
+    methodName: UpdateScoreQuestToggle
+  - assembly: Assembly-CSharp
+    fullTypeName: EditorTileGenerator
+    methodName: UpdateConfig
+  - assembly: Assembly-CSharp
+    fullTypeName: EditorUIManager
+    methodName: UpdateItemQuestToggle
+  - assembly: Assembly-CSharp
+    fullTypeName: EditorTileGenerator
+    methodName: UpdateConfig
   sceneClasses:
     Assets/Scenes/EditorScene/EditorScene.unity:
     - Class: 1
@@ -211,6 +236,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3602}
     - Class: 114
       Script: {instanceID: 5970}
+    - Class: 114
+      Script: {instanceID: 6046}
     - Class: 114
       Script: {instanceID: 6072}
     - Class: 114
@@ -1214,7 +1241,7 @@ ScriptsOnlyBuild:
     className: CCDSolver2D
   - hash:
       serializedVersion: 2
-      Hash: b658034d69d4de9440b4e46212165aa8
+      Hash: ce7d8364b8f5d5318e80c23308c40542
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LevelConfig
@@ -1268,7 +1295,7 @@ ScriptsOnlyBuild:
     className: TMP_DigitValidator
   - hash:
       serializedVersion: 2
-      Hash: 614afdc2b367808709ebbfff5af2d972
+      Hash: 748ef89908d2c9bd55a51049df2a0c42
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EditorUIManager

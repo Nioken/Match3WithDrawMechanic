@@ -73,6 +73,10 @@ public class QuestsManager : MonoBehaviour
 
     public static bool isQuestsCompleted()
     {
+        if(Quests.Count <= 0)
+        {
+            return false;
+        }
         for(int i = 0; i < Quests.Count; i++)
         {
             if (!Quests[i].Complete)

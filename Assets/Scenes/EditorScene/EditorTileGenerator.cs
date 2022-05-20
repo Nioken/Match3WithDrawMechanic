@@ -30,8 +30,23 @@ public class EditorTileGenerator : TileGenerator
             EditorUIManager._editorUIManager.HeightSlider.value = Y;
             EditorUIManager._editorUIManager.WidthSlider.value = X;
             UpdateSizeByConfig();
+            if (PlayerPrefs.HasKey("ScoreQuest") && PlayerPrefs.GetInt("ScoreQuest") == 0)
+            {
+                EditorUIManager._editorUIManager.ScoreQuestToggle.isOn = false;
+            }
+            if (PlayerPrefs.HasKey("ItemQuest") && PlayerPrefs.GetInt("ItemQuest") == 0)
+            {
+                EditorUIManager._editorUIManager.ItemQuestToggle.isOn = false;
+            }
+            if (PlayerPrefs.HasKey("BarrierQuest") && PlayerPrefs.GetInt("BarrierQuest") == 0)
+            {
+                EditorUIManager._editorUIManager.BarrierQuestToggle.isOn = false;
+            }
             return;
         }
+        PlayerPrefs.SetInt("ScoreQuest", 1);
+        PlayerPrefs.SetInt("ItemQuest", 1);
+        PlayerPrefs.SetInt("BarrierQuest", 1);
         UpdateSize();
     }
 
@@ -170,10 +185,14 @@ public class EditorTileGenerator : TileGenerator
 
     public void UpdateConfig()
     {
+        //UpdateQuestConfig();
         _levelConfig.isConfigured = true;
         _levelConfig.X = X;
         _levelConfig.Y = Y;
         _levelConfig.Steps = Steps;
+        _levelConfig.ScoreQuest = PlayerPrefs.GetInt("ScoreQuest");
+        _levelConfig.ItemQuest = PlayerPrefs.GetInt("ItemQuest");
+        _levelConfig.BarrierQuest = PlayerPrefs.GetInt("BarrierQuest");
         PlayerPrefs.SetInt("EditorX", _levelConfig.X);
         PlayerPrefs.SetInt("EditorY", _levelConfig.Y);
         PlayerPrefs.SetInt("EditorSteps", _levelConfig.Steps);

@@ -81,8 +81,46 @@ public class Quest : MonoBehaviour
             }
             if (MaxProgress <= 0)
             {
-                QuestsManager.Quests.Remove(GetComponent<Quest>());
-                Destroy(gameObject);
+                if(randomBarrier == 0)
+                {
+                    BarrierToCount = Barrier.BarrierType.Rock;
+                    QuestImage.sprite = _barriersImage[1];
+                    for (int i = 0; i < TileGenerator.X; i++)
+                    {
+                        for (int j = 0; j < TileGenerator.Y; j++)
+                        {
+                            if (TileGenerator.AllBariers[i, j] != null && TileGenerator.AllBariers[i, j].barrierType == BarrierToCount)
+                            {
+                                MaxProgress++;
+                            }
+                        }
+                    }
+                    if(MaxProgress <= 0)
+                    {
+                        QuestsManager.Quests.Remove(GetComponent<Quest>());
+                        Destroy(gameObject);
+                    }
+                }
+                else
+                {
+                    BarrierToCount = Barrier.BarrierType.Ice;
+                    QuestImage.sprite = _barriersImage[0];
+                    for (int i = 0; i < TileGenerator.X; i++)
+                    {
+                        for (int j = 0; j < TileGenerator.Y; j++)
+                        {
+                            if (TileGenerator.AllBariers[i, j] != null && TileGenerator.AllBariers[i, j].barrierType == BarrierToCount)
+                            {
+                                MaxProgress++;
+                            }
+                        }
+                    }
+                    if (MaxProgress <= 0)
+                    {
+                        QuestsManager.Quests.Remove(GetComponent<Quest>());
+                        Destroy(gameObject);
+                    }
+                }
             }
         }
         ProgressFillPerOne = 1f / (float)MaxProgress;

@@ -67,8 +67,10 @@ public class TileGenerator : MonoBehaviour
     {
         AllTiles = new Tile[X, Y];
         AllBariers = new Barrier[X, Y];
-        QuestsManager.SpawnScoreQuest(X * Y * 8);
-        QuestsManager.SpawnItemQuest(X * Y * 2);
+        if(config.ScoreQuest == 1)
+            QuestsManager.SpawnScoreQuest(X * Y * 8);
+        if(config.ItemQuest == 1)
+            QuestsManager.SpawnItemQuest(X * Y * 2);
         SearchStartPosition();
         for (int i = 0; i < X; i++)
         {
@@ -120,7 +122,8 @@ public class TileGenerator : MonoBehaviour
                 }
             }
         }
-        QuestsManager.SpawnBariersQuest();
+        if(config.BarrierQuest == 1)
+            QuestsManager.SpawnBariersQuest();
         if (!MatchManager.CheckStepAvailable())
         {
             _tileGenerator.RefillTiles();

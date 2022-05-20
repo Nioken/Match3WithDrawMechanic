@@ -35,6 +35,9 @@ public class LevelConfig : ScriptableObject
     public int Steps;
     public int X;
     public int Y;
+    public int ScoreQuest;
+    public int ItemQuest;
+    public int BarrierQuest;
     public BarrierInfo[,] AllBariers;
     public TileInfo[,] AllTiles;
 }
