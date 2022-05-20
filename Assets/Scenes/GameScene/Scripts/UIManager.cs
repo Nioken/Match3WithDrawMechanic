@@ -33,7 +33,14 @@ public class UIManager : MonoBehaviour
 
     public void UpdateSteps(int steps)
     {
-        StepsText.text = "Steps: " + steps.ToString();
+        if (UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale.LocaleName == "English (en)")
+        {
+            StepsText.text = "Steps: " + steps.ToString();
+        }
+        else
+        {
+            StepsText.text = "ируш: " + steps.ToString();
+        }
     }
 
     public void ShowSettings()

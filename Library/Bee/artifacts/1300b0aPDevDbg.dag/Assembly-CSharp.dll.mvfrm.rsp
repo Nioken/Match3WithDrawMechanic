@@ -5,11 +5,15 @@ Library\Bee\artifacts\mvdfrm\Unity.2D.PixelPerfect.ref.dll_1F413448920CB9C4.mvfr
 Library\Bee\artifacts\mvdfrm\Unity.2D.SpriteShape.Runtime.ref.dll_CAE2D54A8CF88ADF.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.2D.Tilemap.Extras.ref.dll_92914F29C3BA8810.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.AdaptivePerformance.ref.dll_421B27D896D0660B.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Addressables.ref.dll_086030A59E2A261A.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Burst.ref.dll_3BFBF039CEAD8141.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.InternalAPIEngineBridge.001.ref.dll_56A2F6762009AA7C.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Localization.ref.dll_0D26A7D794408A4E.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Mathematics.ref.dll_56687DF9F95CDA87.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Notifications.Android.ref.dll_04D3D704EA36CE0A.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Profiling.Core.ref.dll_97754A0264865EEC.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.ResourceManager.ref.dll_ED650AE4945CD840.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.ScriptableBuildPipeline.ref.dll_C39F7A345B7E070C.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Subsystem.Registration.ref.dll_7D80A218F858010D.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.TextMeshPro.ref.dll_F21CCC1C29D24614.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Timeline.ref.dll_1108E87152D71286.mvfrm

@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0/120
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bfd991be3656abb499046a61d3f553c4, type: 2}
-  m_sharedMaterial: {fileID: 1293636265523978079, guid: bfd991be3656abb499046a61d3f553c4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cd403d64b27cc3d48bb63141efad2876, type: 2}
+  m_sharedMaterial: {fileID: -3737242726210436355, guid: cd403d64b27cc3d48bb63141efad2876, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,13 +93,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 51.6
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -55.64073, y: -1.1344757, z: -8.727982, w: 0}
+  m_margin: {x: -55.64073, y: -4.45278, z: -10.193611, w: -4.5627594}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -386,13 +386,13 @@ MonoBehaviour:
   CurrentProgress: 0
   MaxProgress: 0
   ProgressFillPerOne: 0
-  TagToCount: 
-  BarrierToCount: 0
-  FruitsImages: []
-  BarriersImage: []
   ProgressBar: {fileID: 4383301923635737818}
   ProgressText: {fileID: 4383301923377272524}
   QuestImage: {fileID: 0}
+  TagToCount: 
+  BarrierToCount: 0
+  _fruitsImages: []
+  _barriersImage: []
 --- !u!210 &1704717361146816934
 SortingGroup:
   m_ObjectHideFlags: 0

@@ -13,16 +13,41 @@ public class MenuScript : MonoBehaviour
     public SpriteRenderer Background;
     public List<Sprite> Backgrounds;
 
-    void Start()
+    IEnumerator Start()
     {
-        Background.sprite = Backgrounds[Random.Range(0, Backgrounds.Count - 1)];
         _audioSource = GetComponent<AudioSource>();
         if(PlayerPrefs.HasKey("IsMusic") && PlayerPrefs.GetInt("IsMusic") == 0)
         {
             _audioSource.enabled = false;
         }
+
+        yield return UnityEngine.Localization.Settings.LocalizationSettings.InitializationOperation;
+
+        if (PlayerPrefs.HasKey("GameLanguage"))
+        {
+            if(PlayerPrefs.GetString("GameLanguage") == "ru")
+            {
+                SetRussinLanguage();
+            }
+            else
+            {
+                SetEnglishLanguage();
+            }
+        }
+        Background.sprite = Backgrounds[Random.Range(0, Backgrounds.Count - 1)];
         Instantiate(ItemsPrefabs[Random.Range(0, ItemsPrefabs.Count - 1)], new Vector3(0, 1.8f), Quaternion.identity).transform.localScale = new Vector3(2,2);
         SetLastConfig();
+    }
+
+    public void SetRussinLanguage()
+    {
+        UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale = UnityEngine.Localization.Settings.LocalizationSettings.AvailableLocales.Locales[1];
+        PlayerPrefs.SetString("GameLanguage", "ru");
+    }
+    public void SetEnglishLanguage()
+    {
+        UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale = UnityEngine.Localization.Settings.LocalizationSettings.AvailableLocales.Locales[0];
+        PlayerPrefs.SetString("GameLanguage", "en");
     }
 
     public void SetLastConfig()

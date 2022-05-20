@@ -20,10 +20,14 @@ Library\Bee\artifacts\mvdfrm\Unity.AdaptivePerformance.Simulator.Editor.ref.dll_
 Library\Bee\artifacts\mvdfrm\Unity.AdaptivePerformance.Simulator.Extension.ref.dll_6EDB51C66669AEC3.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.AdaptivePerformance.UI.Editor.ref.dll_05AED08ACC2204C5.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.AdaptivePerformance.ref.dll_C5C32C755147790C.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Addressables.Editor.ref.dll_B6BBEF3D2DFF9438.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Addressables.ref.dll_280E9D3428C59709.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Burst.Editor.ref.dll_222C82CECB47A66F.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Burst.ref.dll_3835BB91EC2C0D62.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.InternalAPIEditorBridge.001.ref.dll_25F89DC3AAE256B8.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.InternalAPIEngineBridge.001.ref.dll_1873566E0FF13DFD.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Localization.Editor.ref.dll_4AF765091EFBEF44.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Localization.ref.dll_2CD514661EDBFB3D.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Mathematics.Editor.ref.dll_553CFFCCE7430329.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Mathematics.ref.dll_66DE4C1C9A03AD08.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Mobile.AndroidLogcat.Editor.ref.dll_BE5FB0CA228210A8.mvfrm
@@ -32,7 +36,10 @@ Library\Bee\artifacts\mvdfrm\Unity.Notifications.ref.dll_C779BCBD8C9A81BA.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Notifications.iOS.ref.dll_77F0EA2A00993C29.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.PlasticSCM.Editor.ref.dll_A558B9E65539D7D0.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Profiling.Core.ref.dll_8367B79E0D98D3BB.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.ResourceManager.ref.dll_61A71A9B3ED9C301.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Rider.Editor.ref.dll_DA88E6A3E9EB6155.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.ScriptableBuildPipeline.Editor.ref.dll_4113775FDA80B934.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.ScriptableBuildPipeline.ref.dll_05F0D26EEC97524D.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Subsystem.Registration.ref.dll_1470F74CFD6DDD5C.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.TextMeshPro.Editor.ref.dll_D0BA3615D322EF6C.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.TextMeshPro.ref.dll_02929A3ECA791895.mvfrm
@@ -48,6 +55,7 @@ Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Shared.Editor.ref.dll_6CA31C4
 Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.State.Editor.ref.dll_DC1879B0E64A8F15.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.State.ref.dll_900B338E31D9525C.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.VisualStudio.Editor.ref.dll_0FE027DDD6F41767.mvfrm
+Library\Bee\artifacts\mvdfrm\UnityEditor.CacheServer.ref.dll_D35315FE04DC6674.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEditor.UI.ref.dll_0174E068A5FA251B.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.UI.ref.dll_BDDAB6C3AC1C4D86.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEditor.CoreModule.dll_743AEEBD3B699598.mvfrm

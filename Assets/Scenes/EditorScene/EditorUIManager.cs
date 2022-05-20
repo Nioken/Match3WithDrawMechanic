@@ -37,13 +37,27 @@ public class EditorUIManager : MonoBehaviour
 
     public void UpdateHeight()
     {
-        HeightText.text = "Height: " + HeightSlider.value.ToString();
+        if (UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale.LocaleName == "English (en)")
+        {
+            HeightText.text = "Height: " + HeightSlider.value.ToString();
+        }
+        else
+        {
+            HeightText.text = "Высота: " + HeightSlider.value.ToString();
+        }
         TileGenerator.Y = (int)HeightSlider.value;
     }
 
     public void UpdateWidth()
     {
-        WidthText.text = "Width: " + WidthSlider.value.ToString();
+        if (UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale.LocaleName == "English (en)")
+        {
+            WidthText.text = "Width: " + WidthSlider.value.ToString();
+        }
+        else
+        {
+            WidthText.text = "Ширина: " + WidthSlider.value.ToString();
+        }
         TileGenerator.X = (int)WidthSlider.value;
     }
 
