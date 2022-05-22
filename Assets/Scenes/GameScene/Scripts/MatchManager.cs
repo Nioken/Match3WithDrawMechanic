@@ -10,78 +10,11 @@ public class MatchManager : MonoBehaviour
 
     public static bool CheckNear(Item checkObject)
     {
-        Item lastItem = SelectedItems[SelectedItems.Count - 1];
-        Item thisItem = checkObject;
-        if (thisItem.X + 1 == lastItem.X && thisItem.Y == lastItem.Y)
+        var Neighbours = ReturnNeighbours(SelectedItems[SelectedItems.Count - 1].X, SelectedItems[SelectedItems.Count - 1].Y);
+        for(int i = 0; i < Neighbours.Count; i++)
         {
-            return true;
-        }
-        if (thisItem.X - 1 == lastItem.X && thisItem.Y == lastItem.Y)
-        {
-            return true;
-        }
-
-        if (thisItem.X == lastItem.X && thisItem.Y - 1 == lastItem.Y)
-        {
-            return true;
-        }
-        if (thisItem.X == lastItem.X && thisItem.Y + 1 == lastItem.Y)
-        {
-            return true;
-        }
-        if (thisItem.X - 1 == lastItem.X && thisItem.Y - 1 == lastItem.Y)
-        {
-            return true;
-        }
-        if (thisItem.X + 1 == lastItem.X && thisItem.Y + 1 == lastItem.Y)
-        {
-            return true;
-        }
-        if (thisItem.X - 1 == lastItem.X && thisItem.Y + 1 == lastItem.Y)
-        {
-            return true;
-        }
-        if (thisItem.X + 1 == lastItem.X && thisItem.Y - 1 == lastItem.Y)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public static bool CheckNear(Item firstObject, Item secondObject)
-    {
-        if (secondObject.X + 1 == firstObject.X && secondObject.Y == firstObject.Y)
-        {
-            return true;
-        }
-        if (secondObject.X - 1 == firstObject.X && secondObject.Y == firstObject.Y)
-        {
-            return true;
-        }
-
-        if (secondObject.X == firstObject.X && secondObject.Y - 1 == firstObject.Y)
-        {
-            return true;
-        }
-        if (secondObject.X == firstObject.X && secondObject.Y + 1 == firstObject.Y)
-        {
-            return true;
-        }
-        if (secondObject.X - 1 == firstObject.X && secondObject.Y - 1 == firstObject.Y)
-        {
-            return true;
-        }
-        if (secondObject.X + 1 == firstObject.X && secondObject.Y + 1 == firstObject.Y)
-        {
-            return true;
-        }
-        if (secondObject.X - 1 == firstObject.X && secondObject.Y + 1 == firstObject.Y)
-        {
-            return true;
-        }
-        if (secondObject.X + 1 == firstObject.X && secondObject.Y - 1 == firstObject.Y)
-        {
-            return true;
+            if(Neighbours[i] == checkObject)
+                return true;
         }
         return false;
     }
@@ -129,76 +62,13 @@ public class MatchManager : MonoBehaviour
             {
                 if (TileGenerator.AllBariers[i, j] != null)
                 {
-                    if (i == 0)
+                   var neighbours = ReturnBarrierNeighbours(i, j);
+                    for(int n = 0; n < neighbours.Count; n++)
                     {
-                        if (j == 0)
+                        if(neighbours[n] == null)
                         {
-                            if (TileGenerator.AllItems[i + 1, j] == null || TileGenerator.AllItems[i, j + 1] == null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                            }
-                        }
-                        if (j == TileGenerator.Y - 1)
-                        {
-                            if (TileGenerator.AllItems[i + 1, j] == null || TileGenerator.AllItems[i, j - 1] == null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                            }
-                        }
-                        if (j != 0 && j != TileGenerator.Y - 1)
-                        {
-                            if (TileGenerator.AllItems[i + 1, j] == null || TileGenerator.AllItems[i, j - 1] == null || TileGenerator.AllItems[i, j + 1] == null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                            }
-                        }
-                    }
-                    if (i == TileGenerator.X - 1)
-                    {
-                        if (j == 0)
-                        {
-                            if (TileGenerator.AllItems[i - 1, j] == null || TileGenerator.AllItems[i, j + 1] == null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                            }
-                        }
-                        if (j == TileGenerator.Y - 1)
-                        {
-                            if (TileGenerator.AllItems[i - 1, j] == null || TileGenerator.AllItems[i, j - 1] == null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                            }
-                        }
-                        if (j != 0 && j != TileGenerator.Y - 1)
-                        {
-                            if (TileGenerator.AllItems[i - 1, j] == null || TileGenerator.AllItems[i, j - 1] == null || TileGenerator.AllItems[i, j + 1] == null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                            }
-                        }
-                    }
-                    if (i != 0 && i != TileGenerator.X - 1)
-                    {
-                        if (j == 0)
-                        {
-                            if (TileGenerator.AllItems[i - 1, j] == null || TileGenerator.AllItems[i, j + 1] == null || TileGenerator.AllItems[i + 1, j] == null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                            }
-                        }
-                        if (j == TileGenerator.Y - 1)
-                        {
-                            if (TileGenerator.AllItems[i - 1, j] == null || TileGenerator.AllItems[i, j - 1] == null || TileGenerator.AllItems[i + 1, j] == null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                            }
-                        }
-                        if (j != 0 && j != TileGenerator.Y - 1)
-                        {
-                            if (TileGenerator.AllItems[i - 1, j] == null || TileGenerator.AllItems[i, j - 1] == null || TileGenerator.AllItems[i, j + 1] == null || TileGenerator.AllItems[i + 1, j] == null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                            }
+                            HitBarrier(TileGenerator.AllBariers[i, j]);
+                            break;
                         }
                     }
                 }
@@ -371,6 +241,18 @@ public class MatchManager : MonoBehaviour
                          where x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1)
                      select TileGenerator.AllItems[x,y];
         return neighbours.ToList();
+    }
+
+    public static List<Item> ReturnBarrierNeighbours(int refx, int refy)
+    {
+        var neighbours = from x in Enumerable.Range(refx - 1, 3)
+                         from y in Enumerable.Range(refy, 1)
+                         where (x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1))
+                         select TileGenerator.AllItems[x, y];
+        return neighbours.Union(from x in Enumerable.Range(refx, 1)
+                         from y in Enumerable.Range(refy - 1, 3)
+                         where (x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1))
+                         select TileGenerator.AllItems[x, y]).ToList();
     }
 
 }

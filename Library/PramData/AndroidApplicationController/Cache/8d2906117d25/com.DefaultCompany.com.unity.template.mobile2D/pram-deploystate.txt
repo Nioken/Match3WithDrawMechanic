@@ -5,12 +5,12 @@ assets/aa/Android/localization-string-tables-english(en)_assets_all.bundle:2779-
 assets/aa/Android/localization-string-tables-russian(ru)_assets_all.bundle:2884-637887738652017893
 assets/aa/catalog.json:27657-637887738651997828
 assets/aa/settings.json:849-637886727145206793
-assets/bin/Data/boot.config:296-637888391659830349
+assets/bin/Data/boot.config:297-637888589389781757
 assets/bin/Data/data.unity3d:7126645-637888401455270663
 assets/bin/Data/Managed/Assembly-CSharp-firstpass.dll:46592-637888389004624240
 assets/bin/Data/Managed/Assembly-CSharp-firstpass.pdb:31656-637888389003971492
-assets/bin/Data/Managed/Assembly-CSharp.dll:102912-637888389004624240
-assets/bin/Data/Managed/Assembly-CSharp.pdb:54568-637888389003961466
+assets/bin/Data/Managed/Assembly-CSharp.dll:102400-637888601084905900
+assets/bin/Data/Managed/Assembly-CSharp.pdb:54180-637888601084905900
 assets/bin/Data/Managed/DOTween.dll:172032-637880768161417705
 assets/bin/Data/Managed/Mono.Security.dll:241152-637880768161397716
 assets/bin/Data/Managed/mscorlib.dll:4622848-637880768161287583
@@ -220,7 +220,7 @@ assets/bin/Data/ScriptingAssemblies.json:3444-637886727145236806
 assets/bin/Data/sharedassets0.resource:3752416-637888401455240653
 assets/bin/Data/sharedassets1.resource:124832-637888401455210632
 assets/bin/Data/unity default resources:3906240-637880768161347649
-assets/bin/Data/unity_app_guid:36-637888401456555999
+assets/bin/Data/unity_app_guid:36-637888601086602522
 jniLibs/armeabi-v7a/libmain.so:31708-637888389002442846
 jniLibs/armeabi-v7a/libmono-native.so:1222596-637888389003123448
 jniLibs/armeabi-v7a/libmonobdwgc-2.0.so:7006676-637888389003911420
