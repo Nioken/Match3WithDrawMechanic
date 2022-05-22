@@ -504,7 +504,15 @@
         496,
         497,
         498,
-        499
+        499,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507
       ],
       "AllowUnexpectedOutput": true,
       "DebugActionIndex": 0
@@ -10564,7 +10572,7 @@
     {
       "Annotation": "WriteText C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/values/strings.xml",
       "ActionType": "WriteTextFile",
-      "WriteTextFilePayload": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n  <string name=\"app_name\">Match3 Draw</string>\r\n  <string name=\"game_view_content_description\">Game view</string>\r\n</resources>",
+      "WriteTextFilePayload": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n  <string name=\"app_name\">Fruits Draw</string>\r\n  <string name=\"game_view_content_description\">Game view</string>\r\n</resources>",
       "Inputs": [],
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/values/strings.xml"
@@ -10573,59 +10581,136 @@
       "DebugActionIndex": 480
     },
     {
-      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-anydpi-v26/app_icon.xml",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/2022.1.0b13/Editor/Data/PlaybackEngines/AndroidPlayer/Apk/res/mipmap-anydpi-v26/app_icon.xml"
-      ],
-      "Outputs": [
-        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-anydpi-v26/app_icon.xml"
-      ],
-      "DebugActionIndex": 481
-    },
-    {
-      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-anydpi-v26/app_icon_round.xml",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/2022.1.0b13/Editor/Data/PlaybackEngines/AndroidPlayer/Apk/res/mipmap-anydpi-v26/app_icon_round.xml"
-      ],
-      "Outputs": [
-        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-anydpi-v26/app_icon_round.xml"
-      ],
-      "DebugActionIndex": 482
-    },
-    {
       "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/app_icon.png",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/2022.1.0b13/Editor/Data/PlaybackEngines/AndroidPlayer/Apk/res/mipmap-mdpi/app_icon.png"
+        "Temp/StagingArea/res.mdpi.app_icon.png"
       ],
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/app_icon.png"
       ],
+      "DebugActionIndex": 481
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-ldpi/app_icon.png",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Temp/StagingArea/res.ldpi.app_icon.png"
+      ],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-ldpi/app_icon.png"
+      ],
+      "DebugActionIndex": 482
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-hdpi/app_icon.png",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Temp/StagingArea/res.hdpi.app_icon.png"
+      ],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-hdpi/app_icon.png"
+      ],
       "DebugActionIndex": 483
     },
     {
-      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/ic_launcher_background.png",
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xhdpi/app_icon.png",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/2022.1.0b13/Editor/Data/PlaybackEngines/AndroidPlayer/Apk/res/mipmap-mdpi/ic_launcher_background.png"
+        "Temp/StagingArea/res.xhdpi.app_icon.png"
       ],
       "Outputs": [
-        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/ic_launcher_background.png"
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xhdpi/app_icon.png"
       ],
       "DebugActionIndex": 484
     },
     {
-      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xxhdpi/app_icon.png",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/2022.1.0b13/Editor/Data/PlaybackEngines/AndroidPlayer/Apk/res/mipmap-mdpi/ic_launcher_foreground.png"
+        "Temp/StagingArea/res.xxhdpi.app_icon.png"
       ],
       "Outputs": [
-        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/ic_launcher_foreground.png"
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xxhdpi/app_icon.png"
       ],
       "DebugActionIndex": 485
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xxxhdpi/app_icon.png",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Temp/StagingArea/res.xxxhdpi.app_icon.png"
+      ],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xxxhdpi/app_icon.png"
+      ],
+      "DebugActionIndex": 486
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-ldpi/app_icon_round.png",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Temp/StagingArea/res.ldpi.app_icon_round.png"
+      ],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-ldpi/app_icon_round.png"
+      ],
+      "DebugActionIndex": 487
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/app_icon_round.png",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Temp/StagingArea/res.mdpi.app_icon_round.png"
+      ],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-mdpi/app_icon_round.png"
+      ],
+      "DebugActionIndex": 488
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-hdpi/app_icon_round.png",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Temp/StagingArea/res.hdpi.app_icon_round.png"
+      ],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-hdpi/app_icon_round.png"
+      ],
+      "DebugActionIndex": 489
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xhdpi/app_icon_round.png",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Temp/StagingArea/res.xhdpi.app_icon_round.png"
+      ],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xhdpi/app_icon_round.png"
+      ],
+      "DebugActionIndex": 490
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xxhdpi/app_icon_round.png",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Temp/StagingArea/res.xxhdpi.app_icon_round.png"
+      ],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xxhdpi/app_icon_round.png"
+      ],
+      "DebugActionIndex": 491
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xxxhdpi/app_icon_round.png",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Temp/StagingArea/res.xxxhdpi.app_icon_round.png"
+      ],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res/mipmap-xxxhdpi/app_icon_round.png"
+      ],
+      "DebugActionIndex": 492
     },
     {
       "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libmain.so",
@@ -10636,7 +10721,7 @@
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libmain.so"
       ],
-      "DebugActionIndex": 486
+      "DebugActionIndex": 493
     },
     {
       "Annotation": "SourceBuildPlayerFiles",
@@ -10644,11 +10729,11 @@
       "Inputs": [],
       "Outputs": [],
       "ToBuildDependencies": [
-        486,
-        488
+        493,
+        495
       ],
       "AllowUnexpectedOutput": true,
-      "DebugActionIndex": 487
+      "DebugActionIndex": 494
     },
     {
       "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libunity.so",
@@ -10659,7 +10744,7 @@
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libunity.so"
       ],
-      "DebugActionIndex": 488
+      "DebugActionIndex": 495
     },
     {
       "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libmonobdwgc-2.0.so",
@@ -10670,7 +10755,7 @@
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libmonobdwgc-2.0.so"
       ],
-      "DebugActionIndex": 489
+      "DebugActionIndex": 496
     },
     {
       "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libMonoPosixHelper.so",
@@ -10681,7 +10766,7 @@
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libMonoPosixHelper.so"
       ],
-      "DebugActionIndex": 490
+      "DebugActionIndex": 497
     },
     {
       "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libmono-native.so",
@@ -10692,7 +10777,7 @@
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/jniLibs/armeabi-v7a/libmono-native.so"
       ],
-      "DebugActionIndex": 491
+      "DebugActionIndex": 498
     },
     {
       "Annotation": "WriteText Library/Bee/artifacts/csharpactions/LauncherManifestDiag.txt_zvqu.info",
@@ -10703,7 +10788,7 @@
         "Library/Bee/artifacts/csharpactions/LauncherManifestDiag.txt_zvqu.info"
       ],
       "AllowUnwrittenOutputFiles": true,
-      "DebugActionIndex": 492
+      "DebugActionIndex": 499
     },
     {
       "Annotation": "Generate Manifests Library/Bee/artifacts/Android/Manifest/LauncherManifestDiag.txt (+3 others)",
@@ -10965,11 +11050,11 @@
         462,
         464,
         466,
-        492
+        499
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 493
+      "DebugActionIndex": 500
     },
     {
       "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/symbols/armeabi-v7a/libmain.so",
@@ -10980,7 +11065,7 @@
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/symbols/armeabi-v7a/libmain.so"
       ],
-      "DebugActionIndex": 494
+      "DebugActionIndex": 501
     },
     {
       "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/symbols/armeabi-v7a/libmonobdwgc-2.0.so",
@@ -10991,7 +11076,7 @@
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/symbols/armeabi-v7a/libmonobdwgc-2.0.so"
       ],
-      "DebugActionIndex": 495
+      "DebugActionIndex": 502
     },
     {
       "Annotation": "CopyFiles C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/symbols/armeabi-v7a/libunity.so",
@@ -11002,7 +11087,18 @@
       "Outputs": [
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/symbols/armeabi-v7a/libunity.so"
       ],
-      "DebugActionIndex": 496
+      "DebugActionIndex": 503
+    },
+    {
+      "Annotation": "WriteText C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/pram-shadow-files",
+      "ActionType": "WriteTextFile",
+      "WriteTextFilePayload": "unityLibrary/src/main/assets/bin/Data\r\nunityLibrary/src/main/assets/aa/catalog.json\r\nunityLibrary/src/main/assets/aa/settings.json\r\nunityLibrary/src/main/assets/aa/AddressablesLink/link.xml\r\nunityLibrary/src/main/assets/aa/Android/localization-assets-shared_assets_all.bundle\r\nunityLibrary/src/main/assets/aa/Android/localization-locales_assets_all.bundle\r\nunityLibrary/src/main/assets/aa/Android/localization-string-tables-english(en)_assets_all.bundle\r\nunityLibrary/src/main/assets/aa/Android/localization-string-tables-russian(ru)_assets_all.bundle\r\nunityLibrary/src/main/jniLibs/armeabi-v7a/libmain.so\r\nunityLibrary/src/main/jniLibs/armeabi-v7a/libunity.so\r\nunityLibrary/src/main/jniLibs/armeabi-v7a/libmonobdwgc-2.0.so\r\nunityLibrary/src/main/jniLibs/armeabi-v7a/libMonoPosixHelper.so\r\nunityLibrary/src/main/jniLibs/armeabi-v7a/libmono-native.so\r\n",
+      "Inputs": [],
+      "Outputs": [
+        "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/pram-shadow-files"
+      ],
+      "AllowUnwrittenOutputFiles": true,
+      "DebugActionIndex": 504
     },
     {
       "Annotation": "WriteText Library/Bee/artifacts/csharpactions/unity_app_guid_hu2a.info",
@@ -11013,7 +11109,7 @@
         "Library/Bee/artifacts/csharpactions/unity_app_guid_hu2a.info"
       ],
       "AllowUnwrittenOutputFiles": true,
-      "DebugActionIndex": 497
+      "DebugActionIndex": 505
     },
     {
       "Annotation": "GuidGenerator C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/unity_app_guid",
@@ -11254,11 +11350,11 @@
         "C:/Users/Nioke/Match3 Draw/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/assets/bin/Data/unity_app_guid"
       ],
       "ToBuildDependencies": [
-        497
+        505
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 498
+      "DebugActionIndex": 506
     },
     {
       "Annotation": "Player",
@@ -11632,15 +11728,23 @@
         484,
         485,
         486,
+        487,
         488,
         489,
         490,
         491,
+        492,
         493,
-        498
+        495,
+        496,
+        497,
+        498,
+        500,
+        504,
+        506
       ],
       "AllowUnexpectedOutput": true,
-      "DebugActionIndex": 499
+      "DebugActionIndex": 507
     }
   ],
   "FileSignatures": [
@@ -12314,8 +12418,8 @@
   "EmitDataForBeeWhy": 0,
         "NamedNodes": {
           "all_tundra_nodes": 0,
-          "SourceBuildPlayerFiles": 487,
-          "Player": 499
+          "SourceBuildPlayerFiles": 494,
+          "Player": 507
         }
 ,  "DefaultNodes": [
     0

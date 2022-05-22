@@ -20,7 +20,9 @@ public class MenuScript : MonoBehaviour
         {
             _audioSource.enabled = false;
         }
-
+        Background.sprite = Backgrounds[Random.Range(0, Backgrounds.Count - 1)];
+        Instantiate(ItemsPrefabs[Random.Range(0, ItemsPrefabs.Count - 1)], new Vector3(0, 1.8f), Quaternion.identity).transform.localScale = new Vector3(2, 2);
+        SetLastConfig();
         yield return UnityEngine.Localization.Settings.LocalizationSettings.InitializationOperation;
 
         if (PlayerPrefs.HasKey("GameLanguage"))
@@ -34,9 +36,6 @@ public class MenuScript : MonoBehaviour
                 SetEnglishLanguage();
             }
         }
-        Background.sprite = Backgrounds[Random.Range(0, Backgrounds.Count - 1)];
-        Instantiate(ItemsPrefabs[Random.Range(0, ItemsPrefabs.Count - 1)], new Vector3(0, 1.8f), Quaternion.identity).transform.localScale = new Vector3(2,2);
-        SetLastConfig();
     }
 
     public void SetRussinLanguage()

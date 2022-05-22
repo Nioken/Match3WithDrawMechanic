@@ -18,6 +18,10 @@ public class TileGenerator : MonoBehaviour
     public static Barrier[,] AllBariers;
     public Vector3 StartPosition;
 
+    public Transform TilesObjectsTransform;
+    public Transform ItemsObjectsTransform;
+    public Transform BarriersObjectsTransform;
+
     private void Start()
     {
         _tileGenerator = this;
@@ -51,6 +55,7 @@ public class TileGenerator : MonoBehaviour
             for(int j = 0;j< Y; j++)
             {
                 AllTiles[i, j] = Instantiate(TilePrefab, new Vector3(StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20),Quaternion.identity).GetComponent<Tile>();
+                AllTiles[i, j].transform.SetParent(TilesObjectsTransform);
             }
         }
         AlignObjects();
@@ -78,6 +83,7 @@ public class TileGenerator : MonoBehaviour
             {
                 AllTiles[i, j] = Instantiate(TilePrefab, new Vector3(StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20), Quaternion.identity).GetComponent<Tile>();
                 EditorTileGenerator.ApplyConfigState(AllTiles[i, j], _levelConfig.AllTiles[i, j]);
+                AllTiles[i, j].transform.SetParent(TilesObjectsTransform);
             }
         }
         AlignObjects();
@@ -183,6 +189,7 @@ public class TileGenerator : MonoBehaviour
                     AllBariers[i, j].X = i;
                     AllBariers[i, j].Y = j;
                     AllTiles[i, j].IsBarried = true;
+                    AllBariers[i, j].transform.SetParent(BarriersObjectsTransform);
                 }
             }
         }
@@ -201,6 +208,7 @@ public class TileGenerator : MonoBehaviour
                     AllItems[i,j] = Instantiate(ItemsPrefabs[Random.Range(0, ItemsPrefabs.Count)], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
                     AllItems[i, j].GetComponent<Item>().X = i;
                     AllItems[i, j].GetComponent<Item>().Y = j;
+                    AllItems[i, j].transform.SetParent(ItemsObjectsTransform);
                 }
             }
         }
@@ -219,6 +227,7 @@ public class TileGenerator : MonoBehaviour
                     AllItems[i, j].GetComponent<Item>().X = i;
                     AllItems[i, j].GetComponent<Item>().Y = j;
                     AllItems[i, j].transform.DOScale(Vector3.one, 0.5f);
+                    AllItems[i, j].transform.SetParent(ItemsObjectsTransform);
                 }
             }
         }
@@ -239,6 +248,7 @@ public class TileGenerator : MonoBehaviour
                     AllItems[i, j].transform.DOScale(1, 0.5f);
                     AllItems[i, j].X = i;
                     AllItems[i,j].Y = j;
+                    AllItems[i, j].transform.SetParent(_tileGenerator.ItemsObjectsTransform);
                     return;
                 }
             }
@@ -335,6 +345,7 @@ public class TileGenerator : MonoBehaviour
                 AllItems[i, j].GetComponent<Item>().X = i;
                 AllItems[i, j].GetComponent<Item>().Y = j;
                 AllItems[i, j].transform.DOScale(Vector3.one, 0.5f);
+                AllItems[i, j].transform.SetParent(ItemsObjectsTransform);
             }
         }
         if (!MatchManager.CheckStepAvailable())

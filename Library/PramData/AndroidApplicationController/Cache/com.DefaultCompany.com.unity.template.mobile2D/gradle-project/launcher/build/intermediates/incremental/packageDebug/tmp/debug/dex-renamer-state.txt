@@ -1,4 +1,4 @@
-#Fri May 20 19:06:40 MSK 2022
+#Sun May 22 21:15:49 MSK 2022
 path.2=classes_0.dex
 path.1=classes.dex
 path.0=classes.dex

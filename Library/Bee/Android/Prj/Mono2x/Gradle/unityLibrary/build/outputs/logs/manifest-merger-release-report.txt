@@ -1,25 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-29:12
+ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-30:12
 	package
 		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:70-98
 		INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-29:12
+		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-30:12
 		INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:99-145
 	android:versionCode
 		INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-29:12
+		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:1-30:12
 		INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:2:11-69
@@ -125,24 +125,28 @@ ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unit
 		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:25:64-88
 	android:name
 		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:25:17-63
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:26:3-65
+	android:name
+		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:26:20-62
 uses-feature#android.hardware.touchscreen
-ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:26:3-88
+ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:27:3-88
 	android:required
-		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:26:61-85
+		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:27:61-85
 	android:name
-		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:26:17-60
+		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:27:17-60
 uses-feature#android.hardware.touchscreen.multitouch
-ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:27:3-99
+ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:28:3-99
 	android:required
-		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:27:72-96
+		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:28:72-96
 	android:name
-		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:27:17-71
+		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:28:17-71
 uses-feature#android.hardware.touchscreen.multitouch.distinct
-ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:28:3-108
+ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:29:3-108
 	android:required
-		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:28:81-105
+		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:29:81-105
 	android:name
-		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:28:17-80
+		ADDED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:29:17-80
 uses-sdk
 INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Nioke\Match3 Draw\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml
