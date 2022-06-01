@@ -59,12 +59,6 @@ public class MenuScript : MonoBehaviour
                 {
                     _levelConfig.AllTiles = JsonConvert.DeserializeObject<LevelConfig.TileInfo[,]>(sr.ReadToEnd());
                     _levelConfig.isConfigured = true;
-                    if (PlayerPrefs.HasKey("EditorX"))
-                    {
-                        _levelConfig.X = PlayerPrefs.GetInt("EditorX");
-                        _levelConfig.Y = PlayerPrefs.GetInt("EditorY");
-                        _levelConfig.Steps = PlayerPrefs.GetInt("EditorSteps");
-                    }
                 }
             }
             using (StreamReader sr = new StreamReader(Application.persistentDataPath + "/Barriers.json"))
@@ -72,6 +66,20 @@ public class MenuScript : MonoBehaviour
                 if (sr != null)
                 {
                     _levelConfig.AllBariers = JsonConvert.DeserializeObject<LevelConfig.BarrierInfo[,]>(sr.ReadToEnd());
+                }
+            }
+
+            using (StreamReader sr = new StreamReader(Application.persistentDataPath + "/LevelInfo.json"))
+            {
+                if (sr != null)
+                {
+                    LevelConfig.LevelInfo info = JsonConvert.DeserializeObject<LevelConfig.LevelInfo>(sr.ReadToEnd());
+                    _levelConfig.X = info.X;
+                    _levelConfig.Y = info.Y;
+                    _levelConfig.Steps = info.Steps;
+                    _levelConfig.ItemQuest = info.ItemQuest;
+                    _levelConfig.ScoreQuest = info.ScoreQuest;
+                    _levelConfig.BarrierQuest = info.BarrierQuest;
                 }
             }
         }

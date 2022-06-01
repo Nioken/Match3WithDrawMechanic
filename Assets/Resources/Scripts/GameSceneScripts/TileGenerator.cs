@@ -72,9 +72,9 @@ public class TileGenerator : MonoBehaviour
     {
         AllTiles = new Tile[X, Y];
         AllBariers = new Barrier[X, Y];
-        if(config.ScoreQuest == 1)
+        if(config.ScoreQuest)
             QuestsManager.SpawnScoreQuest(X * Y * 8);
-        if(config.ItemQuest == 1)
+        if(config.ItemQuest)
             QuestsManager.SpawnItemQuest(X * Y * 2);
         SearchStartPosition();
         for (int i = 0; i < X; i++)
@@ -128,7 +128,7 @@ public class TileGenerator : MonoBehaviour
                 }
             }
         }
-        if(config.BarrierQuest == 1)
+        if(config.BarrierQuest)
             QuestsManager.SpawnBariersQuest();
         if (!MatchManager.CheckStepAvailable())
         {

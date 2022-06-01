@@ -15,62 +15,62 @@ MonoBehaviour:
   m_TableCollectionName: UI
   m_TableCollectionNameGuidString: 98cda47fea0127e4e92b4c3f2ee0b19f
   m_Entries:
-  - m_Id: 31325081600
-    m_Key: PlayRandomLevelString
+  - m_Id: 10806546432
+    m_Key: PlayRandomLevel
     m_Metadata:
       m_Items: []
-  - m_Id: 297977958400
-    m_Key: ConfigureLevelString
+  - m_Id: 128494522368
+    m_Key: ConfigureLevel
     m_Metadata:
       m_Items: []
-  - m_Id: 4701103771648
-    m_Key: EditorStepsText
+  - m_Id: 613007937536
+    m_Key: HeightSlider
     m_Metadata:
       m_Items: []
-  - m_Id: 5158874304512
-    m_Key: EditorWidthText
+  - m_Id: 897318834176
+    m_Key: WidthSlider
     m_Metadata:
       m_Items: []
-  - m_Id: 5255271993344
-    m_Key: EditorHeightText
+  - m_Id: 1133047107584
+    m_Key: Steps
     m_Metadata:
       m_Items: []
-  - m_Id: 6113732775936
-    m_Key: GameStepsText
+  - m_Id: 1248604377088
+    m_Key: QuestText
     m_Metadata:
       m_Items: []
-  - m_Id: 6504788709376
+  - m_Id: 2021908205568
+    m_Key: GameSteps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2290972807168
     m_Key: SettingText
     m_Metadata:
       m_Items: []
-  - m_Id: 6732119986176
+  - m_Id: 2435760181248
     m_Key: MusicText
     m_Metadata:
       m_Items: []
-  - m_Id: 6893487443968
+  - m_Id: 2496112021504
     m_Key: SoundsText
     m_Metadata:
       m_Items: []
-  - m_Id: 7244110286848
+  - m_Id: 2774592835584
     m_Key: WinText
     m_Metadata:
       m_Items: []
-  - m_Id: 7627889102848
+  - m_Id: 2938938249216
     m_Key: LoseText
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7948547837952
-    m_Key: EditorQuestText
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 8931177291175428158
+    rid: 6497492538578436128
   references:
     version: 2
     RefIds:
-    - rid: 8931177291175428158
+    - rid: 6497492538578436128
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1653068033106
+        m_CustomEpoch: 1654118488102

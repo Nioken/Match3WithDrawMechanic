@@ -30,23 +30,23 @@ public class EditorTileGenerator : TileGenerator
             EditorUIManager._editorUIManager.HeightSlider.value = Y;
             EditorUIManager._editorUIManager.WidthSlider.value = X;
             UpdateSizeByConfig();
-            if (PlayerPrefs.HasKey("ScoreQuest") && PlayerPrefs.GetInt("ScoreQuest") == 0)
+            if (!_levelConfig.ScoreQuest)
             {
                 EditorUIManager._editorUIManager.ScoreQuestToggle.isOn = false;
             }
-            if (PlayerPrefs.HasKey("ItemQuest") && PlayerPrefs.GetInt("ItemQuest") == 0)
+            if (!_levelConfig.ItemQuest)
             {
                 EditorUIManager._editorUIManager.ItemQuestToggle.isOn = false;
             }
-            if (PlayerPrefs.HasKey("BarrierQuest") && PlayerPrefs.GetInt("BarrierQuest") == 0)
+            if (!_levelConfig.BarrierQuest)
             {
                 EditorUIManager._editorUIManager.BarrierQuestToggle.isOn = false;
             }
             return;
         }
-        PlayerPrefs.SetInt("ScoreQuest", 1);
-        PlayerPrefs.SetInt("ItemQuest", 1);
-        PlayerPrefs.SetInt("BarrierQuest", 1);
+        _levelConfig.ScoreQuest = true;
+        _levelConfig.ItemQuest = true;
+        _levelConfig.BarrierQuest = true;
         UpdateSize();
     }
 
@@ -211,12 +211,6 @@ public class EditorTileGenerator : TileGenerator
         _levelConfig.X = X;
         _levelConfig.Y = Y;
         _levelConfig.Steps = Steps;
-        _levelConfig.ScoreQuest = PlayerPrefs.GetInt("ScoreQuest");
-        _levelConfig.ItemQuest = PlayerPrefs.GetInt("ItemQuest");
-        _levelConfig.BarrierQuest = PlayerPrefs.GetInt("BarrierQuest");
-        PlayerPrefs.SetInt("EditorX", _levelConfig.X);
-        PlayerPrefs.SetInt("EditorY", _levelConfig.Y);
-        PlayerPrefs.SetInt("EditorSteps", _levelConfig.Steps);
         _levelConfig.AllTiles = new LevelConfig.TileInfo[X, Y];
         _levelConfig.AllBariers = new LevelConfig.BarrierInfo[X, Y];
         for (int i = 0; i < X; i++)
@@ -240,6 +234,11 @@ public class EditorTileGenerator : TileGenerator
         using (StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/Barriers.json"))
         {
             string SerializeConfig = JsonConvert.SerializeObject(_levelConfig.AllBariers);
+            sw.Write(SerializeConfig);
+        }
+        using (StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/LevelInfo.json"))
+        {
+            string SerializeConfig = JsonConvert.SerializeObject(new LevelConfig.LevelInfo(_levelConfig.Steps,_levelConfig.X,_levelConfig.Y,_levelConfig.ScoreQuest,_levelConfig.ItemQuest,_levelConfig.BarrierQuest));
             sw.Write(SerializeConfig);
         }
     }

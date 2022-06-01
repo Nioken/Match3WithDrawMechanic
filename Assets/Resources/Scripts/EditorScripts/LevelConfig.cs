@@ -31,13 +31,31 @@ public class LevelConfig : ScriptableObject
             this.barrierType = barrierType;
         }
     }
+    public struct LevelInfo
+    {
+        public int Steps;
+        public int X;
+        public int Y;
+        public bool ScoreQuest;
+        public bool ItemQuest;
+        public bool BarrierQuest;
+        public LevelInfo(int Steps, int X,int Y,bool ScoreQuest,bool ItemQuest, bool BarrierQuest)
+        {
+            this.Steps = Steps;
+            this.X = X;
+            this.Y=Y;
+            this.ScoreQuest = ScoreQuest;
+            this.ItemQuest = ItemQuest;
+            this.BarrierQuest = BarrierQuest;
+        }
+    }
     public bool isConfigured;
     public int Steps;
     public int X;
     public int Y;
-    public int ScoreQuest;
-    public int ItemQuest;
-    public int BarrierQuest;
+    public bool ScoreQuest;
+    public bool ItemQuest;
+    public bool BarrierQuest;
     public BarrierInfo[,] AllBariers;
     public TileInfo[,] AllTiles;
 }

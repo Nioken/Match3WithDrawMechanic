@@ -17,6 +17,7 @@ public class EditorUIManager : MonoBehaviour
     [SerializeField] private TMP_Text WidthText;
     public TMP_InputField StepsField;
     [SerializeField] public static EditorUIManager _editorUIManager;
+    [SerializeField] public LevelConfig _levelConfig;
 
     [Header("UI  вествов")]
     [SerializeField] public GameObject QuestSelectUI;
@@ -85,33 +86,33 @@ public class EditorUIManager : MonoBehaviour
     {
         if (ScoreQuestToggle.isOn)
         {
-            PlayerPrefs.SetInt("ScoreQuest", 1);
+            _levelConfig.ScoreQuest = true;
         }
         else
         {
-            PlayerPrefs.SetInt("ScoreQuest", 0);
+            _levelConfig.ScoreQuest = false;
         }
     } 
     public void UpdateItemQuestToggle()
     {
         if (ItemQuestToggle.isOn)
         {
-            PlayerPrefs.SetInt("ItemQuest", 1);
+            _levelConfig.ItemQuest = true;
         }
         else
         {
-            PlayerPrefs.SetInt("ItemQuest", 0);
+            _levelConfig.ItemQuest = false;
         }
     }
     public void UpdateBarrierQuestToggle()
     {
         if (BarrierQuestToggle.isOn)
         {
-            PlayerPrefs.SetInt("BarrierQuest", 1);
+            _levelConfig.BarrierQuest = true;
         }
         else
         {
-            PlayerPrefs.SetInt("BarrierQuest", 0);
+            _levelConfig.BarrierQuest = false;
         }
     }
 

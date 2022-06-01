@@ -1003,7 +1003,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:98cda47fea0127e4e92b4c3f2ee0b19f
     m_TableEntryReference:
-      m_KeyId: 5158874304512
+      m_KeyId: 897318834176
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -3160,7 +3160,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:98cda47fea0127e4e92b4c3f2ee0b19f
     m_TableEntryReference:
-      m_KeyId: 4701103771648
+      m_KeyId: 1133047107584
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -4256,6 +4256,7 @@ MonoBehaviour:
   WidthSlider: {fileID: 528078214}
   WidthText: {fileID: 400041274}
   StepsField: {fileID: 818018486}
+  _levelConfig: {fileID: 11400000, guid: 64a58b7a3b08a3e45b5326a32edd3918, type: 2}
   QuestSelectUI: {fileID: 1547021459}
   ScoreQuestToggle: {fileID: 1421014284}
   ItemQuestToggle: {fileID: 1943743362}
@@ -4643,7 +4644,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:98cda47fea0127e4e92b4c3f2ee0b19f
     m_TableEntryReference:
-      m_KeyId: 5255271993344
+      m_KeyId: 613007937536
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -4819,7 +4820,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:98cda47fea0127e4e92b4c3f2ee0b19f
     m_TableEntryReference:
-      m_KeyId: 7948547837952
+      m_KeyId: 1248604377088
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
