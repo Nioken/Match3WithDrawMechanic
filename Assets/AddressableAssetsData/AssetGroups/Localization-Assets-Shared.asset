@@ -16,11 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: b26564031fa4b8940b58e6b6993ce2fe
-  m_SerializeEntries:
-  - m_GUID: 98cda47fea0127e4e92b4c3f2ee0b19f
-    m_Address: Assets/UI/Fonts/UI Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: a6dcd918993a1e142afee294f1e4e989, type: 2}
   m_SchemaSet:
