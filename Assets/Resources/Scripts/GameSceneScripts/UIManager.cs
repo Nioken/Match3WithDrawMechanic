@@ -4,51 +4,47 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.Localization.Settings;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private PlayerControl _playerControl;
-    [SerializeField] private TMP_Text StepsText;
-    [SerializeField] private GameObject SettingsUI;
-    [SerializeField] private GameObject WinUI;
-    [SerializeField] private GameObject LoseUI;
-    [SerializeField] private Toggle MusicToggleButton;
-    [SerializeField] private Toggle SoundsToggleButton;
-    [SerializeField] private List<Sprite> Backgrounds;
-    [SerializeField] private SpriteRenderer Background;
-    private bool isInteractive = true;
+    [SerializeField] private TMP_Text _stepsText;
+    [SerializeField] private GameObject _settingsUI;
+    [SerializeField] private GameObject _winUI;
+    [SerializeField] private GameObject _loseUI;
+    [SerializeField] private Toggle _musicToggleButton;
+    [SerializeField] private Toggle _soundsToggleButton;
+    [SerializeField] private List<Sprite> _backgrounds;
+    [SerializeField] private SpriteRenderer _background;
+    private bool _isInteractive = true;
 
     private void Start()
     {
-        Background.sprite = Backgrounds[Random.Range(0, Backgrounds.Count - 1)];
+        _background.sprite = _backgrounds[Random.Range(0, _backgrounds.Count - 1)];
         if (PlayerPrefs.HasKey("IsSound") && PlayerPrefs.GetInt("IsSound") == 0)
         {
-            SoundsToggleButton.isOn = false;
+            _soundsToggleButton.isOn = false;
         }
+
         if (PlayerPrefs.HasKey("IsMusic") && PlayerPrefs.GetInt("IsMusic") == 0)
         {
-            MusicToggleButton.isOn = false;
+            _musicToggleButton.isOn = false;
         }
     }
 
     public void UpdateSteps(int steps)
     {
-        if (UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale.LocaleName == "English (en)")
-        {
-            StepsText.text = "Steps: " + steps.ToString();
-        }
-        else
-        {
-            StepsText.text = "ируш: " + steps.ToString();
-        }
+        _stepsText.text = LocalizationSettings.SelectedLocale.LocaleName == "English (en)" ? _stepsText.text = 
+            "Steps: " + steps.ToString() : _stepsText.text = "ируш: " + steps.ToString();
     }
 
     public void ShowSettings()
     {
-        if (isInteractive)
+        if (_isInteractive)
         {
-            SettingsUI.SetActive(true);
-            SettingsUI.transform.DOScale(new Vector3(4.87f, 7.37f), 0.3f);
+            _settingsUI.SetActive(true);
+            _settingsUI.transform.DOScale(new Vector3(4.87f, 7.37f), 0.3f);
             _playerControl.enabled = false;
         }
         
@@ -56,38 +52,38 @@ public class UIManager : MonoBehaviour
 
     public void HideSettings()
     {
-        SettingsUI.transform.DOScale(0, 0.3f).OnComplete(() => SettingsUI.SetActive(false));
+        _settingsUI.transform.DOScale(0, 0.3f).OnComplete(() => _settingsUI.SetActive(false));
         _playerControl.enabled = true;
     }
 
     public void ToggleMusic()
     {
-        if (MusicToggleButton.isOn)
+        if (_musicToggleButton.isOn)
         {
             PlayerPrefs.SetInt("IsMusic", 1);
-            MusicToggleButton.transform.GetChild(2).gameObject.SetActive(false);
+            _musicToggleButton.transform.GetChild(2).gameObject.SetActive(false);
             AudioManager._audioManager.MusicSource.enabled = true;
         }
         else
         {
             PlayerPrefs.SetInt("IsMusic", 0);
-            MusicToggleButton.transform.GetChild(2).gameObject.SetActive(true);
+            _musicToggleButton.transform.GetChild(2).gameObject.SetActive(true);
             AudioManager._audioManager.MusicSource.enabled = false;
         }
     }
 
     public void ToggleSounds()
     {
-        if (SoundsToggleButton.isOn)
+        if (_soundsToggleButton.isOn)
         {
             PlayerPrefs.SetInt("IsSound", 1);
-            SoundsToggleButton.transform.GetChild(2).gameObject.SetActive(false);
+            _soundsToggleButton.transform.GetChild(2).gameObject.SetActive(false);
             AudioManager._audioManager.SoundsSource.enabled = true;
         }
         else
         {
             PlayerPrefs.SetInt("IsSound", 0);
-            SoundsToggleButton.transform.GetChild(2).gameObject.SetActive(true);
+            _soundsToggleButton.transform.GetChild(2).gameObject.SetActive(true);
             AudioManager._audioManager.SoundsSource.enabled = false;
         }
     }
@@ -111,18 +107,18 @@ public class UIManager : MonoBehaviour
 
     public void ShowWinUI()
     {
-        WinUI.SetActive(true);
-        WinUI.transform.DOScale(new Vector3(4.87f, 7.37f), 0.3f);
+        _winUI.SetActive(true);
+        _winUI.transform.DOScale(new Vector3(4.87f, 7.37f), 0.3f);
         _playerControl.enabled = false;
-        isInteractive = false;
+        _isInteractive = false;
     }
 
     public void ShowLoseUI()
     {
-        LoseUI.SetActive(true);
-        LoseUI.transform.DOScale(new Vector3(4.87f, 7.37f), 0.3f);
+        _loseUI.SetActive(true);
+        _loseUI.transform.DOScale(new Vector3(4.87f, 7.37f), 0.3f);
         _playerControl.enabled = false;
-        isInteractive = false;
+        _isInteractive = false;
     }
     
     public void RestartLevel()

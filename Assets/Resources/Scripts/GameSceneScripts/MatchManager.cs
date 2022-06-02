@@ -10,10 +10,10 @@ public class MatchManager : MonoBehaviour
 
     public static bool CheckNear(Item checkObject)
     {
-        var Neighbours = ReturnNeighbours(SelectedItems[SelectedItems.Count - 1].X, SelectedItems[SelectedItems.Count - 1].Y);
-        for(int i = 0; i < Neighbours.Count; i++)
+        var neighbours = ReturnNeighbours(SelectedItems[SelectedItems.Count - 1].X, SelectedItems[SelectedItems.Count - 1].Y);
+        for(int i = 0; i < neighbours.Count; i++)
         {
-            if(Neighbours[i] == checkObject)
+            if(neighbours[i] == checkObject)
                 return true;
         }
         return false;
@@ -21,7 +21,7 @@ public class MatchManager : MonoBehaviour
 
     public static bool CheckStepAvailable()
     {
-        Item CheckedItem;
+        Item checkedItem;
         for(int i = 0; i < TileGenerator.X; i++)
         {
             for(int j = 0; j < TileGenerator.Y; j++)
@@ -30,25 +30,26 @@ public class MatchManager : MonoBehaviour
                 {
                     return true;
                 }
+
                 if (TileGenerator.AllItems[i, j].tag == "Bonus" || TileGenerator.AllBariers[i, j] != null) continue;
-                CheckedItem = TileGenerator.AllItems[i, j];
-               var objectNeibours = ReturnNeighbours(i, j);
-               for(int t = 0;t < objectNeibours.Count; t++)
-               {
+                checkedItem = TileGenerator.AllItems[i, j];
+                var objectNeibours = ReturnNeighbours(i, j);
+                for(int t = 0;t < objectNeibours.Count; t++)
+                {
                     if (objectNeibours[t] == TileGenerator.AllItems[i, j] || TileGenerator.AllBariers[objectNeibours[t].X,objectNeibours[t].Y] != null) continue;
                     if(objectNeibours[t].tag == TileGenerator.AllItems[i, j].tag || objectNeibours[t].tag == "Bonus")
                     {
-                        var NextObjectNeibours = ReturnNeighbours(objectNeibours[t].X, objectNeibours[t].Y);
-                        for(int n = 0; n < NextObjectNeibours.Count; n++)
+                        var nextObjectNeibours = ReturnNeighbours(objectNeibours[t].X, objectNeibours[t].Y);
+                        for(int n = 0; n < nextObjectNeibours.Count; n++)
                         {
-                            if (NextObjectNeibours[n] == objectNeibours[t] || TileGenerator.AllBariers[NextObjectNeibours[n].X,NextObjectNeibours[n].Y] != null) continue;
-                            if(NextObjectNeibours[n] != CheckedItem && NextObjectNeibours[n].tag == CheckedItem.tag || NextObjectNeibours[n].tag == "Bonus")
+                            if (nextObjectNeibours[n] == objectNeibours[t] || TileGenerator.AllBariers[nextObjectNeibours[n].X, nextObjectNeibours[n].Y] != null) continue;
+                            if(nextObjectNeibours[n] != checkedItem && nextObjectNeibours[n].tag == checkedItem.tag || nextObjectNeibours[n].tag == "Bonus")
                             {
                                 return true;
                             }
                         }
                     }
-               }
+                }
             }
         }
         return false;
@@ -78,8 +79,8 @@ public class MatchManager : MonoBehaviour
 
     public static void HitBarrier(Barrier barrier)
     {
-        barrier.heal--;
-        if (barrier.heal <= 0)
+        barrier.Heal--;
+        if (barrier.Heal <= 0)
         {
             TileGenerator.AllTiles[barrier.X, barrier.Y].IsBarried = false;
             TileGenerator.AllBariers[barrier.X, barrier.Y] = null;
@@ -95,24 +96,29 @@ public class MatchManager : MonoBehaviour
                     }
                 }
             }
-
         }
-        if (barrier.heal == 1 && barrier.barrierType == Barrier.BarrierType.Rock)
+
+        if (barrier.Heal == 1 && barrier.Type == Barrier.BarrierType.Rock)
         {
             barrier.transform.DOShakePosition(0.5f, 0.2f);
             barrier.GetComponent<SpriteRenderer>().sprite = barrier.RockBrokenSprite;
         }
-        if (barrier.heal == 1 && barrier.barrierType == Barrier.BarrierType.Ice)
+
+        if (barrier.Heal == 1 && barrier.Type == Barrier.BarrierType.Ice)
         {
             barrier.transform.DOShakePosition(0.5f, 0.2f);
             barrier.GetComponent<SpriteRenderer>().sprite = barrier.IceBrokenSprite;
         }
+
         AudioManager.PlayHitSound();
     }
 
     public static void DestroyAfterAnim(Item item)
     {
-        item.transform.DOScale(0, 0.1f).OnComplete(() => { DOTween.Kill(item); Destroy(item.gameObject); });
+        item.transform.DOScale(0, 0.1f).OnComplete(() => 
+        {
+            DOTween.Kill(item); Destroy(item.gameObject); 
+        });
     }
 
     public static void ActivateBonus(Item bonus)
@@ -133,6 +139,7 @@ public class MatchManager : MonoBehaviour
                             HitBarrier(TileGenerator.AllBariers[i, j]);
                             continue;
                         }
+
                         destroyCounter++;
                         Item ItemToDestroy = TileGenerator.AllItems[i, j];
                         QuestsManager.UpdateItemProgress(TileGenerator.AllItems[i, j]);
@@ -161,6 +168,7 @@ public class MatchManager : MonoBehaviour
                                 HitBarrier(TileGenerator.AllBariers[i, j]);
                                 continue;
                             }
+
                             Item ItemToDestroy = TileGenerator.AllItems[i, j];
                             QuestsManager.UpdateItemProgress(TileGenerator.AllItems[i, j]);
                             TileGenerator.AllItems[i, j] = null;
@@ -171,6 +179,7 @@ public class MatchManager : MonoBehaviour
                 }
             }
         }
+
         TileGenerator.FillAfterMatch();
         QuestsManager.UpdateScoreProgress(destroyCounter);
     }
@@ -221,10 +230,12 @@ public class MatchManager : MonoBehaviour
             {
                 TileGenerator.SpawnBonus(Item.BonusType.Rocket);
             }
+
             if (SelectedItems.Count >= 8)
             {
                 TileGenerator.SpawnBonus(Item.BonusType.Bomb);
             }
+
             SelectedItems.Clear();
             CurrentTag = null;
             CheckBarriersMatch();
@@ -239,7 +250,7 @@ public class MatchManager : MonoBehaviour
         var neighbours = from x in Enumerable.Range(refx - 1, 3)
                          from y in Enumerable.Range(refy - 1, 3)
                          where x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1)
-                     select TileGenerator.AllItems[x,y];
+                         select TileGenerator.AllItems[x,y];
         return neighbours.ToList();
     }
 
@@ -250,9 +261,9 @@ public class MatchManager : MonoBehaviour
                          where (x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1))
                          select TileGenerator.AllItems[x, y];
         return neighbours.Union(from x in Enumerable.Range(refx, 1)
-                         from y in Enumerable.Range(refy - 1, 3)
-                         where (x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1))
-                         select TileGenerator.AllItems[x, y]).ToList();
+                                from y in Enumerable.Range(refy - 1, 3)
+                                where (x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1))
+                                select TileGenerator.AllItems[x, y]).ToList();
     }
 
 }

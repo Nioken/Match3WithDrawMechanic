@@ -4042,7 +4042,7 @@ MonoBehaviour:
   _levelConfig: {fileID: 11400000, guid: 64a58b7a3b08a3e45b5326a32edd3918, type: 2}
   _rocketPrefab: {fileID: 0}
   _bombPrefab: {fileID: 0}
-  ItemsPrefabs: []
+  _itemsPrefabs: []
   TilePrefab: {fileID: 6547914807049865639, guid: 6c29732e8ab89e044aa29926c8a3f33b, type: 3}
   BarriersPrefabs:
   - {fileID: 6829346331018239843, guid: d35cf624890ba124eb965b7090b3ab5c, type: 3}
@@ -4246,17 +4246,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5da0d080f9b5845b9b72003535afaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Background: {fileID: 1886393623}
-  Backgrounds:
+  _background: {fileID: 1886393623}
+  _backgrounds:
   - {fileID: 21300000, guid: 059be570b86883a458ae9fec1fe8e3c1, type: 3}
   - {fileID: 21300000, guid: 378d93bdecc9ad44d915e83362da4c6e, type: 3}
   - {fileID: 21300000, guid: 7da852c9c46b80649bfaa61a5fd62690, type: 3}
-  HeightSlider: {fileID: 1132289542}
-  HeightText: {fileID: 1577757014}
-  WidthSlider: {fileID: 528078214}
-  WidthText: {fileID: 400041274}
-  StepsField: {fileID: 818018486}
+  _heightText: {fileID: 1577757014}
+  _widthText: {fileID: 400041274}
   _levelConfig: {fileID: 11400000, guid: 64a58b7a3b08a3e45b5326a32edd3918, type: 2}
+  HeightSlider: {fileID: 1132289542}
+  WidthSlider: {fileID: 528078214}
+  StepsField: {fileID: 818018486}
   QuestSelectUI: {fileID: 1547021459}
   ScoreQuestToggle: {fileID: 1421014284}
   ItemQuestToggle: {fileID: 1943743362}

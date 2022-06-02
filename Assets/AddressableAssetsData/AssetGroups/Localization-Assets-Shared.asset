@@ -17,10 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: b26564031fa4b8940b58e6b6993ce2fe
   m_SerializeEntries:
-  - m_GUID: c7774069bf0f58148aaf3c8650ba1862
-    m_Address: Assets/Resources/UI/UI Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
   - m_GUID: 98cda47fea0127e4e92b4c3f2ee0b19f
     m_Address: Assets/Resources/UI/Fonts/UI Shared Data.asset
     m_ReadOnly: 1

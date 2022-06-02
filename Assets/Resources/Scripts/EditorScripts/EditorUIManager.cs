@@ -5,60 +5,48 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Localization.Settings;
 
 public class EditorUIManager : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer Background;
-    [SerializeField] private List<Sprite> Backgrounds;
+    [SerializeField] private SpriteRenderer _background;
+    [SerializeField] private List<Sprite> _backgrounds;
 
-    [SerializeField] public Slider HeightSlider;
-    [SerializeField] private TMP_Text HeightText;
-    [SerializeField] public Slider WidthSlider;
-    [SerializeField] private TMP_Text WidthText;
-    public TMP_InputField StepsField;
+    [SerializeField] private TMP_Text _heightText;
+    [SerializeField] private TMP_Text _widthText;
+    [SerializeField] private LevelConfig _levelConfig;
     [SerializeField] public static EditorUIManager _editorUIManager;
-    [SerializeField] public LevelConfig _levelConfig;
+    public Slider HeightSlider;
+    public Slider WidthSlider;
+    public TMP_InputField StepsField;
 
     [Header("UI Квествов")]
-    [SerializeField] public GameObject QuestSelectUI;
-    [SerializeField] public Toggle ScoreQuestToggle;
-    [SerializeField] public Toggle ItemQuestToggle;
-    [SerializeField] public Toggle BarrierQuestToggle;
-
+    public GameObject QuestSelectUI;
+    public Toggle ScoreQuestToggle;
+    public Toggle ItemQuestToggle;
+    public Toggle BarrierQuestToggle;
 
     private void OnEnable()
     {
         _editorUIManager = GetComponent<EditorUIManager>();
     }
 
-    void Start()
-    { 
-        Background.sprite = Backgrounds[UnityEngine.Random.Range(0, Backgrounds.Count)];
+    private void Start()
+    {
+        _background.sprite = _backgrounds[UnityEngine.Random.Range(0, _backgrounds.Count)];
     }
 
     public void UpdateHeight()
     {
-        if (UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale.LocaleName == "English (en)")
-        {
-            HeightText.text = "Height: " + HeightSlider.value.ToString();
-        }
-        else
-        {
-            HeightText.text = "Высота: " + HeightSlider.value.ToString();
-        }
+        _heightText.text = LocalizationSettings.SelectedLocale.LocaleName == "English (en)" ? _heightText.text = 
+            "Height: " + HeightSlider.value.ToString() : _heightText.text = "Высота: " + HeightSlider.value.ToString();
         TileGenerator.Y = (int)HeightSlider.value;
     }
 
     public void UpdateWidth()
     {
-        if (UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale.LocaleName == "English (en)")
-        {
-            WidthText.text = "Width: " + WidthSlider.value.ToString();
-        }
-        else
-        {
-            WidthText.text = "Ширина: " + WidthSlider.value.ToString();
-        }
+        _widthText.text = LocalizationSettings.SelectedLocale.LocaleName == "English (en)" ? _widthText.text = 
+            "Width: " + WidthSlider.value.ToString() : _widthText.text = "Ширина: " + WidthSlider.value.ToString();
         TileGenerator.X = (int)WidthSlider.value;
     }
 
@@ -67,9 +55,9 @@ public class EditorUIManager : MonoBehaviour
         EditorTileGenerator.Steps = Convert.ToInt32(StepsField.text);
     }
 
-    public void UpdateCurrentBarrier(Barrier Barrier)
+    public void UpdateCurrentBarrier(Barrier barrier)
     {
-        EditorTileGenerator.CurrentBarrier = Barrier;
+        EditorTileGenerator.CurrentBarrier = barrier;
     }
 
     public void ToMenu()
@@ -84,36 +72,17 @@ public class EditorUIManager : MonoBehaviour
     
     public void UpdateScoreQuestToggle()
     {
-        if (ScoreQuestToggle.isOn)
-        {
-            _levelConfig.ScoreQuest = true;
-        }
-        else
-        {
-            _levelConfig.ScoreQuest = false;
-        }
+        _levelConfig.ScoreQuest = ScoreQuestToggle.isOn ? _levelConfig.ScoreQuest = true : _levelConfig.ScoreQuest = false;
     } 
+
     public void UpdateItemQuestToggle()
     {
-        if (ItemQuestToggle.isOn)
-        {
-            _levelConfig.ItemQuest = true;
-        }
-        else
-        {
-            _levelConfig.ItemQuest = false;
-        }
+        _levelConfig.ItemQuest = ItemQuestToggle.isOn ? _levelConfig.ItemQuest = true : _levelConfig.ItemQuest = false;
     }
+
     public void UpdateBarrierQuestToggle()
     {
-        if (BarrierQuestToggle.isOn)
-        {
-            _levelConfig.BarrierQuest = true;
-        }
-        else
-        {
-            _levelConfig.BarrierQuest = false;
-        }
+        _levelConfig.BarrierQuest = BarrierQuestToggle.isOn ? _levelConfig.BarrierQuest = true : _levelConfig.BarrierQuest = false;
     }
 
     public void HideQuestSelect()

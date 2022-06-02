@@ -6,12 +6,8 @@ using DG.Tweening;
 
 public class Quest : MonoBehaviour
 {
-    public enum QuestType
-    {
-        ScoreQuest,
-        ItemQuest,
-        BarrierQuest
-    }
+    [SerializeField] private List<Sprite> _fruitsImages;
+    [SerializeField] private List<Sprite> _barriersImage;
     public QuestType Type;
     public bool Complete = false;
     public int CurrentProgress = 0;
@@ -23,8 +19,13 @@ public class Quest : MonoBehaviour
 
     public string TagToCount;
     public Barrier.BarrierType BarrierToCount;
-    [SerializeField] private List<Sprite> _fruitsImages;
-    [SerializeField] private List<Sprite> _barriersImage;
+
+    public enum QuestType
+    {
+        ScoreQuest,
+        ItemQuest,
+        BarrierQuest
+    }
 
     private void Start()
     {
@@ -73,10 +74,8 @@ public class Quest : MonoBehaviour
             {
                 for (int j = 0; j < TileGenerator.Y; j++)
                 {
-                    if (TileGenerator.AllBariers[i, j] != null && TileGenerator.AllBariers[i,j].barrierType == BarrierToCount)
-                    {
+                    if (TileGenerator.AllBariers[i, j] != null && TileGenerator.AllBariers[i,j].Type == BarrierToCount)
                         MaxProgress++;
-                    }
                 }
             }
             if (MaxProgress <= 0)
@@ -89,7 +88,7 @@ public class Quest : MonoBehaviour
                     {
                         for (int j = 0; j < TileGenerator.Y; j++)
                         {
-                            if (TileGenerator.AllBariers[i, j] != null && TileGenerator.AllBariers[i, j].barrierType == BarrierToCount)
+                            if (TileGenerator.AllBariers[i, j] != null && TileGenerator.AllBariers[i, j].Type == BarrierToCount)
                             {
                                 MaxProgress++;
                             }
@@ -109,10 +108,8 @@ public class Quest : MonoBehaviour
                     {
                         for (int j = 0; j < TileGenerator.Y; j++)
                         {
-                            if (TileGenerator.AllBariers[i, j] != null && TileGenerator.AllBariers[i, j].barrierType == BarrierToCount)
-                            {
+                            if (TileGenerator.AllBariers[i, j] != null && TileGenerator.AllBariers[i, j].Type == BarrierToCount)
                                 MaxProgress++;
-                            }
                         }
                     }
                     if (MaxProgress <= 0)
@@ -123,6 +120,7 @@ public class Quest : MonoBehaviour
                 }
             }
         }
+
         ProgressFillPerOne = 1f / (float)MaxProgress;
         UIManager.UpdateQuestsUI();
     }
@@ -138,6 +136,7 @@ public class Quest : MonoBehaviour
             ProgressBar.fillAmount = 1;
             ProgressText.color = Color.green;
         }
+
         UIManager.UpdateQuestsUI();
     }
 }

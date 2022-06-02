@@ -5,30 +5,40 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New LevelConfig")]
 public class LevelConfig : ScriptableObject
 {
+    public bool IsConfigured;
+    public int Steps;
+    public int X;
+    public int Y;
+    public bool ScoreQuest;
+    public bool ItemQuest;
+    public bool BarrierQuest;
+    public BarrierInfo[,] AllBariers;
+    public TileInfo[,] AllTiles;
+
     public struct TileInfo
     {
         public int X;
         public int Y;
         public bool IsBarried;
-        public TileInfo(int X, int Y, bool IsBarried)
+        public TileInfo(int x, int y, bool isBarried)
         {
-            this.X = X;
-            this.Y = Y;
-            this.IsBarried = IsBarried;
+            X = x;
+            Y = y;
+            IsBarried = isBarried;
         }
     }
     public struct BarrierInfo
     {
-        public int heal;
+        public int Heal;
         public int X;
         public int Y;
-        public Barrier.BarrierType barrierType;
-        public BarrierInfo(int X,int Y,int heal, Barrier.BarrierType barrierType)
+        public Barrier.BarrierType Type;
+        public BarrierInfo(int x, int y, int heal, Barrier.BarrierType type)
         {
-            this.X = X;
-            this.Y = Y;
-            this.heal = heal;
-            this.barrierType = barrierType;
+            X = x;
+            Y = y;
+            Heal = heal;
+            Type = type;
         }
     }
     public struct LevelInfo
@@ -39,23 +49,14 @@ public class LevelConfig : ScriptableObject
         public bool ScoreQuest;
         public bool ItemQuest;
         public bool BarrierQuest;
-        public LevelInfo(int Steps, int X,int Y,bool ScoreQuest,bool ItemQuest, bool BarrierQuest)
+        public LevelInfo(int steps, int x, int y, bool scoreQuest, bool itemQuest, bool barrierQuest)
         {
-            this.Steps = Steps;
-            this.X = X;
-            this.Y=Y;
-            this.ScoreQuest = ScoreQuest;
-            this.ItemQuest = ItemQuest;
-            this.BarrierQuest = BarrierQuest;
+            Steps = steps;
+            X = x;
+            Y = y;
+            ScoreQuest = scoreQuest;
+            ItemQuest = itemQuest;
+            BarrierQuest = barrierQuest;
         }
     }
-    public bool isConfigured;
-    public int Steps;
-    public int X;
-    public int Y;
-    public bool ScoreQuest;
-    public bool ItemQuest;
-    public bool BarrierQuest;
-    public BarrierInfo[,] AllBariers;
-    public TileInfo[,] AllTiles;
 }

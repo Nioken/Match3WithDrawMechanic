@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections;
+using UnityEngine.Localization.Settings;
 
 public class MenuScript : MonoBehaviour
 {
@@ -13,39 +14,32 @@ public class MenuScript : MonoBehaviour
     public SpriteRenderer Background;
     public List<Sprite> Backgrounds;
 
-    IEnumerator Start()
+    private IEnumerator Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        if(PlayerPrefs.HasKey("IsMusic") && PlayerPrefs.GetInt("IsMusic") == 0)
-        {
-            _audioSource.enabled = false;
-        }
+        if(PlayerPrefs.HasKey("IsMusic") && PlayerPrefs.GetInt("IsMusic") == 0) _audioSource.enabled = false;
         Background.sprite = Backgrounds[Random.Range(0, Backgrounds.Count - 1)];
         Instantiate(ItemsPrefabs[Random.Range(0, ItemsPrefabs.Count - 1)], new Vector3(0, 1.8f), Quaternion.identity).transform.localScale = new Vector3(2, 2);
         SetLastConfig();
         yield return UnityEngine.Localization.Settings.LocalizationSettings.InitializationOperation;
-
         if (PlayerPrefs.HasKey("GameLanguage"))
         {
             if(PlayerPrefs.GetString("GameLanguage") == "ru")
-            {
                 SetRussinLanguage();
-            }
             else
-            {
                 SetEnglishLanguage();
-            }
         }
     }
 
     public void SetRussinLanguage()
     {
-        UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale = UnityEngine.Localization.Settings.LocalizationSettings.AvailableLocales.Locales[1];
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
         PlayerPrefs.SetString("GameLanguage", "ru");
     }
+
     public void SetEnglishLanguage()
     {
-        UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale = UnityEngine.Localization.Settings.LocalizationSettings.AvailableLocales.Locales[0];
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
         PlayerPrefs.SetString("GameLanguage", "en");
     }
 
@@ -58,7 +52,7 @@ public class MenuScript : MonoBehaviour
                 if (sr != null)
                 {
                     _levelConfig.AllTiles = JsonConvert.DeserializeObject<LevelConfig.TileInfo[,]>(sr.ReadToEnd());
-                    _levelConfig.isConfigured = true;
+                    _levelConfig.IsConfigured = true;
                 }
             }
             using (StreamReader sr = new StreamReader(Application.persistentDataPath + "/Barriers.json"))
@@ -68,7 +62,6 @@ public class MenuScript : MonoBehaviour
                     _levelConfig.AllBariers = JsonConvert.DeserializeObject<LevelConfig.BarrierInfo[,]>(sr.ReadToEnd());
                 }
             }
-
             using (StreamReader sr = new StreamReader(Application.persistentDataPath + "/LevelInfo.json"))
             {
                 if (sr != null)
@@ -85,13 +78,13 @@ public class MenuScript : MonoBehaviour
         }
         catch (System.Exception)
         {
-            _levelConfig.isConfigured = false;
+            _levelConfig.IsConfigured = false;
         }
     }
 
     public void PlayRandomLevel()
     {
-        _levelConfig.isConfigured = false;
+        _levelConfig.IsConfigured = false;
         SceneManager.LoadScene("GameScene");
     }
 
@@ -99,5 +92,4 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("EditorScene");
     }
-
 }

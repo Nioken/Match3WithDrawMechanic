@@ -10,7 +10,7 @@ public class EditorTileGenerator : TileGenerator
     public static int Steps = 100;
     public static Barrier CurrentBarrier;
     private RaycastHit _hit;
-    private bool CanResize = true;
+    private bool _canResize = true;
 
     private void Start()
     {
@@ -20,12 +20,13 @@ public class EditorTileGenerator : TileGenerator
             AllBariers = null;
             AllItems = null;
         }
-        if (_levelConfig.isConfigured)
+
+        if (_levelConfig.IsConfigured)
         {
             X = _levelConfig.X;
             Y = _levelConfig.Y;
             Steps = _levelConfig.Steps;
-            CanResize = false;
+            _canResize = false;
             EditorUIManager._editorUIManager.StepsField.text = Steps.ToString();
             EditorUIManager._editorUIManager.HeightSlider.value = Y;
             EditorUIManager._editorUIManager.WidthSlider.value = X;
@@ -34,16 +35,19 @@ public class EditorTileGenerator : TileGenerator
             {
                 EditorUIManager._editorUIManager.ScoreQuestToggle.isOn = false;
             }
+
             if (!_levelConfig.ItemQuest)
             {
                 EditorUIManager._editorUIManager.ItemQuestToggle.isOn = false;
             }
+
             if (!_levelConfig.BarrierQuest)
             {
                 EditorUIManager._editorUIManager.BarrierQuestToggle.isOn = false;
             }
             return;
         }
+
         _levelConfig.ScoreQuest = true;
         _levelConfig.ItemQuest = true;
         _levelConfig.BarrierQuest = true;
@@ -52,12 +56,13 @@ public class EditorTileGenerator : TileGenerator
 
     public void UpdateSize()
     {
-        if (!_levelConfig.isConfigured)
+        if (!_levelConfig.IsConfigured)
         {
             X = 3;
             Y = 3;
         }
-        if (!CanResize) return;
+
+        if (!_canResize) return;
         if (AllTiles != null)
         {
             for (int i = 0; i < AllTiles.GetLength(0); i++)
@@ -68,11 +73,13 @@ public class EditorTileGenerator : TileGenerator
                     {
                         Destroy(AllBariers[i, j].gameObject);
                     }
+
                     Destroy(AllTiles[i, j].gameObject);
                 }
             }
             AllTiles = null;
         }
+
         AllTiles = new Tile[X, Y];
         AllBariers = new Barrier[X, Y];
         SearchStartPosition();
@@ -115,9 +122,9 @@ public class EditorTileGenerator : TileGenerator
             {
                 if (AllTiles[i, j].IsBarried)
                 {
-                    if (_levelConfig.AllBariers[i, j].barrierType == Barrier.BarrierType.Rock)
+                    if (_levelConfig.AllBariers[i, j].Type == Barrier.BarrierType.Rock)
                     {
-                        if (_levelConfig.AllBariers[i, j].heal == 2)
+                        if (_levelConfig.AllBariers[i, j].Heal == 2)
                         {
                             AllBariers[i, j] = Instantiate(BarriersPrefabs[0], AllTiles[i, j].transform.position, Quaternion.identity);
                             AllBariers[i, j].X = i;
@@ -132,7 +139,7 @@ public class EditorTileGenerator : TileGenerator
                     }
                     else
                     {
-                        if (_levelConfig.AllBariers[i, j].heal == 2)
+                        if (_levelConfig.AllBariers[i, j].Heal == 2)
                         {
                             AllBariers[i, j] = Instantiate(BarriersPrefabs[2], AllTiles[i, j].transform.position, Quaternion.identity);
                             AllBariers[i, j].X = i;
@@ -145,11 +152,12 @@ public class EditorTileGenerator : TileGenerator
                             AllBariers[i, j].Y = j;
                         }
                     }
+
                     AllBariers[i, j].transform.SetParent(BarriersObjectsTransform);
                 }
             }
         }
-        CanResize = true;
+        _canResize = true;
     }
 
     private void PlayerInput()
@@ -181,33 +189,9 @@ public class EditorTileGenerator : TileGenerator
         }
     }
 
-    public void Update()
-    {
-#region AndoridInput
-#if UNITY_ANDROID
-        if (Input.touchCount > 0)
-        {
-            if (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Moved)
-            {
-                PlayerInput();
-            }
-        }
-#endif
-#endregion
-
-#region EditorInput
-#if UNITY_EDITOR
-        if (Input.GetMouseButton(0))
-        {
-            PlayerInput();
-        }
-#endif
-#endregion
-    }
-
     public void UpdateConfig()
     {
-        _levelConfig.isConfigured = true;
+        _levelConfig.IsConfigured = true;
         _levelConfig.X = X;
         _levelConfig.Y = Y;
         _levelConfig.Steps = Steps;
@@ -221,7 +205,7 @@ public class EditorTileGenerator : TileGenerator
                 _levelConfig.AllTiles[i, j] = tmp;
                 if (AllBariers[i, j] != null)
                 {
-                    LevelConfig.BarrierInfo tmpBarrier = new LevelConfig.BarrierInfo(AllBariers[i, j].X, AllBariers[i, j].Y, AllBariers[i, j].heal, AllBariers[i, j].barrierType);
+                    LevelConfig.BarrierInfo tmpBarrier = new LevelConfig.BarrierInfo(AllBariers[i, j].X, AllBariers[i, j].Y, AllBariers[i, j].Heal, AllBariers[i, j].Type);
                     _levelConfig.AllBariers[i, j] = tmpBarrier;
                 }
             }
@@ -243,10 +227,44 @@ public class EditorTileGenerator : TileGenerator
         }
     }
 
-    public static void ApplyConfigState(Tile tile, LevelConfig.TileInfo SavedSate)
+    public static void ApplyConfigState(Tile tile, LevelConfig.TileInfo savedSate)
     {
-        tile.X = SavedSate.X;
-        tile.Y = SavedSate.Y;
-        tile.IsBarried = SavedSate.IsBarried;
+        tile.X = savedSate.X;
+        tile.Y = savedSate.Y;
+        tile.IsBarried = savedSate.IsBarried;
+    }
+    
+    public void Update()
+    {
+
+#region AndoridInput
+
+#if UNITY_ANDROID
+
+        if (Input.touchCount > 0)
+        {
+            if (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Moved)
+            {
+                PlayerInput();
+            }
+        }
+
+#endif
+
+#endregion
+
+#region EditorInput
+
+#if UNITY_EDITOR
+
+        if (Input.GetMouseButton(0))
+        {
+            PlayerInput();
+        }
+
+#endif
+
+#endregion
+
     }
 }

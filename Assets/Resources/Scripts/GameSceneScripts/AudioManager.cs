@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager _audioManager;
     public AudioSource MusicSource;
     public AudioSource SoundsSource;
     public AudioClip SelectAudio;
@@ -9,11 +10,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip HitAudio;
     public AudioClip BombSound;
     public AudioClip RocketSound;
-    public static AudioManager _audioManager;
 
     private void OnEnable()
     {
-        _audioManager = this;
+        _audioManager = GetComponent<AudioManager>();
         SoundsSource = GetComponent<AudioSource>();
     }
 

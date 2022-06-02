@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   X: 0
   Y: 0
-  barrierType: 0
+  Type: 0
   RockBrokenSprite: {fileID: 21300000, guid: 9f770d7b1e4442840854eb700827081f, type: 3}
   IceBrokenSprite: {fileID: 21300000, guid: b7a420fcbcd140344aa027a4c90f5cc9, type: 3}
-  heal: 1
+  Heal: 1

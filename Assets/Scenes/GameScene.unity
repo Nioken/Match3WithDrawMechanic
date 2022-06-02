@@ -1331,12 +1331,12 @@ MonoBehaviour:
   _levelConfig: {fileID: 11400000, guid: 64a58b7a3b08a3e45b5326a32edd3918, type: 2}
   _rocketPrefab: {fileID: 421723217850074308, guid: 04641d40e91642d428c5c281231cb285, type: 3}
   _bombPrefab: {fileID: 2691678636272413158, guid: ae6d10ac436fd2d40b174fd1eccada91, type: 3}
-  ItemsPrefabs:
+  _itemsPrefabs:
   - {fileID: 135722, guid: 48e2b867fa77df2489266abb9c52c1db, type: 3}
   - {fileID: 120900, guid: 28dd42fca7a476d478e583d0b8d8e192, type: 3}
   - {fileID: 141080, guid: 61b0811442153784f854e40753a2f925, type: 3}
-  - {fileID: 178846, guid: 58194b4a856312545a557025edfb6937, type: 3}
   - {fileID: 125166, guid: 0fa72a843191b2e4c924dfe0c98fd45e, type: 3}
+  - {fileID: 178846, guid: 58194b4a856312545a557025edfb6937, type: 3}
   TilePrefab: {fileID: 6547914807049865639, guid: 6c29732e8ab89e044aa29926c8a3f33b, type: 3}
   BarriersPrefabs:
   - {fileID: 6829346331018239843, guid: d35cf624890ba124eb965b7090b3ab5c, type: 3}
@@ -1359,8 +1359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1796e161c0efc4fb36566d3fa9bb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LineRenderer: {fileID: 323732467}
-  _UIManager: {fileID: 2122727084}
+  _lineRenderer: {fileID: 323732467}
+  _uiManager: {fileID: 2122727084}
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1500,10 +1500,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7da00abca4cdb1439df9d201c766e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UICanvas: {fileID: 2122727077}
-  ScoreQuestPrefab: {fileID: 4383301924091472272, guid: feb560ffd2543c541b9be6130acb9f07, type: 3}
-  ItemQuestPrefab: {fileID: 274711000548313233, guid: f19a4909a3eb0df4b953fab64eda3ff6, type: 3}
-  BariersQuestPrefab: {fileID: 3432459212888797362, guid: 3c970adb98f61f740bc46fd4f7e07bfb, type: 3}
+  _scoreQuestPrefab: {fileID: 4383301924091472272, guid: feb560ffd2543c541b9be6130acb9f07, type: 3}
+  _itemQuestPrefab: {fileID: 274711000548313233, guid: f19a4909a3eb0df4b953fab64eda3ff6, type: 3}
+  _bariersQuestPrefab: {fileID: 3432459212888797362, guid: 3c970adb98f61f740bc46fd4f7e07bfb, type: 3}
+  _uiCanvas: {fileID: 2122727077}
 --- !u!1 &566377128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,17 +4595,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerControl: {fileID: 519420034}
-  StepsText: {fileID: 407608922}
-  SettingsUI: {fileID: 1691050307}
-  WinUI: {fileID: 1125035488}
-  LoseUI: {fileID: 1196134377}
-  MusicToggleButton: {fileID: 2144818027}
-  SoundsToggleButton: {fileID: 1939796295}
-  Backgrounds:
+  _stepsText: {fileID: 407608922}
+  _settingsUI: {fileID: 1691050307}
+  _winUI: {fileID: 1125035488}
+  _loseUI: {fileID: 1196134377}
+  _musicToggleButton: {fileID: 2144818027}
+  _soundsToggleButton: {fileID: 1939796295}
+  _backgrounds:
   - {fileID: 21300000, guid: 7da852c9c46b80649bfaa61a5fd62690, type: 3}
-  - {fileID: 21300000, guid: 059be570b86883a458ae9fec1fe8e3c1, type: 3}
   - {fileID: 21300000, guid: 378d93bdecc9ad44d915e83362da4c6e, type: 3}
-  Background: {fileID: 793388837}
+  - {fileID: 21300000, guid: 059be570b86883a458ae9fec1fe8e3c1, type: 3}
+  _background: {fileID: 793388837}
 --- !u!1 &2139314210
 GameObject:
   m_ObjectHideFlags: 0

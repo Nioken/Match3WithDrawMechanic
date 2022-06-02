@@ -3,16 +3,14 @@ using DG.Tweening;
 
 public class Barrier : MoveableObject
 {
-    [SerializeField]
-    public BarrierType barrierType;
-    [SerializeField]
+    public BarrierType Type;
     public Sprite RockBrokenSprite;
     public Sprite IceBrokenSprite;
-    public int heal;
+    public int Heal;
 
     private void Start()
     {
-        if (barrierType == BarrierType.Ice)
+        if (Type == BarrierType.Ice)
         {
             gameObject.transform.DOScale(1.5f, 0.5f).OnComplete(() => gameObject.transform.DOScale(1.4f, 0.5f)).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
         }

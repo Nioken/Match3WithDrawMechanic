@@ -4,12 +4,10 @@ using DG.Tweening;
 
 public class PlayerControl : MonoBehaviour
 {
-    [SerializeField]
-    private LineRenderer LineRenderer;
-    [SerializeField]
-    private UIManager _UIManager;
-    private RaycastHit _hit;
+    [SerializeField] private LineRenderer _lineRenderer;
+    [SerializeField] private UIManager _uiManager;
     public static int PlayerSteps = 100;
+    private RaycastHit _hit;
 
     private void OnEnable()
     {
@@ -20,8 +18,7 @@ public class PlayerControl : MonoBehaviour
     {
         TileGenerator.UpdateCameraSize();
         MatchManager.SelectedItems = new List<Item>();
-        Debug.Log(MatchManager.SelectedItems.Count);
-        _UIManager.UpdateSteps(PlayerSteps);
+        _uiManager.UpdateSteps(PlayerSteps);
     }
 
     private void InputItemsCast()
@@ -37,6 +34,7 @@ public class PlayerControl : MonoBehaviour
                         MatchManager.CurrentTag = _hit.collider.tag;
                     }
                 }
+
                 if (_hit.collider.tag == MatchManager.CurrentTag || _hit.collider.tag == "Bonus")
                 {
                     Item cachedItem = null;
@@ -51,6 +49,7 @@ public class PlayerControl : MonoBehaviour
                                 {
                                     return;
                                 }
+
                                 cachedItem = TileGenerator.AllItems[i, j];
                             }
                         }
@@ -59,14 +58,12 @@ public class PlayerControl : MonoBehaviour
                     {
                         if (MatchManager.SelectedItems.Count > 0)
                         {
-                            if (!MatchManager.CheckNear(cachedItem))
-                            {
-                                return;
-                            }
+                            if (!MatchManager.CheckNear(cachedItem)) return;
                         }
+
                         _hit.collider.gameObject.transform.DOScale(1.3f, 0.5f);
-                        LineRenderer.positionCount++;
-                        LineRenderer.SetPosition(LineRenderer.positionCount - 1, new Vector3(_hit.collider.gameObject.transform.position.x, _hit.collider.gameObject.transform.position.y, 19));
+                        _lineRenderer.positionCount++;
+                        _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, new Vector3(_hit.collider.gameObject.transform.position.x, _hit.collider.gameObject.transform.position.y, 19));
                         MatchManager.SelectedItems.Add(cachedItem);
                         AudioManager.PlaySelectSound();
                     }
@@ -79,44 +76,41 @@ public class PlayerControl : MonoBehaviour
                             {
                                 MatchManager.SelectedItems[i].gameObject.transform.DOScale(1f, 0.5f);
                                 MatchManager.SelectedItems.RemoveAt(i);
-                                LineRenderer.positionCount--;
+                                _lineRenderer.positionCount--;
                             }
                         }
                     }
                 }
-
             }
         }
     }
+
     private void EndInput()
     {
-        LineRenderer.positionCount = 0;
+        _lineRenderer.positionCount = 0;
         MatchManager.CheckMatch();
-        _UIManager.UpdateSteps(PlayerSteps);
+        _uiManager.UpdateSteps(PlayerSteps);
         if (PlayerSteps == 0)
         {
             if (QuestsManager.isQuestsCompleted())
-            {
-                _UIManager.ShowWinUI();
-            }
+                _uiManager.ShowWinUI();
             else
-            {
-                _UIManager.ShowLoseUI();
-            }
+                _uiManager.ShowLoseUI();
         }
         else
         {
             if (QuestsManager.isQuestsCompleted())
-            {
-                _UIManager.ShowWinUI();
-            }
+                _uiManager.ShowWinUI();
         }
     }
 
     private void Update()
     {
-        #region AndroidInput
+
+#region AndroidInput
+
 #if UNITY_ANDROID
+
         if (Input.touchCount > 0)
         {
             if (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Moved)
@@ -128,10 +122,15 @@ public class PlayerControl : MonoBehaviour
                 EndInput();
             }
         }
+
 #endif
-        #endregion
-        #region EditorInput
+
+#endregion
+
+#region EditorInput
+
 #if UNITY_EDITOR
+
         if (Input.GetMouseButton(0))
         {
             InputItemsCast();
@@ -140,7 +139,10 @@ public class PlayerControl : MonoBehaviour
         {
             EndInput();
         }
+
 #endif
-        #endregion
+
+#endregion
+
     }
 }
