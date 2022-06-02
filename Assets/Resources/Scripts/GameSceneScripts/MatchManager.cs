@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using DG.Tweening;
-using System.Linq;
 
 public class MatchManager : MonoBehaviour
 {
@@ -258,7 +258,7 @@ public class MatchManager : MonoBehaviour
     {
         var neighbours = from x in Enumerable.Range(refx - 1, 3)
                          from y in Enumerable.Range(refy, 1)
-                         where (x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1))
+                         where x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1)
                          select TileGenerator.AllItems[x, y];
         return neighbours.Union(from x in Enumerable.Range(refx, 1)
                                 from y in Enumerable.Range(refy - 1, 3)

@@ -63,7 +63,8 @@ public class PlayerControl : MonoBehaviour
 
                         _hit.collider.gameObject.transform.DOScale(1.3f, 0.5f);
                         _lineRenderer.positionCount++;
-                        _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, new Vector3(_hit.collider.gameObject.transform.position.x, _hit.collider.gameObject.transform.position.y, 19));
+                        _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, new Vector3
+                            (_hit.collider.gameObject.transform.position.x, _hit.collider.gameObject.transform.position.y, 19));
                         MatchManager.SelectedItems.Add(cachedItem);
                         AudioManager.PlaySelectSound();
                     }
@@ -107,42 +108,30 @@ public class PlayerControl : MonoBehaviour
     private void Update()
     {
 
-#region AndroidInput
+        #region AndroidInput
 
 #if UNITY_ANDROID
 
         if (Input.touchCount > 0)
         {
-            if (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Moved)
-            {
-                InputItemsCast();
-            }
-            if (Input.touches[0].phase == TouchPhase.Ended)
-            {
-                EndInput();
-            }
+            if (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Moved) InputItemsCast();
+            if (Input.touches[0].phase == TouchPhase.Ended) EndInput();
         }
 
 #endif
 
-#endregion
+        #endregion
 
-#region EditorInput
+        #region EditorInput
 
 #if UNITY_EDITOR
 
-        if (Input.GetMouseButton(0))
-        {
-            InputItemsCast();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            EndInput();
-        }
+        if (Input.GetMouseButton(0)) InputItemsCast();
+        if (Input.GetMouseButtonUp(0)) EndInput();
 
 #endif
 
-#endregion
+        #endregion
 
     }
 }

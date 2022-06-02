@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
 using UnityEngine.Localization.Settings;
+using TMPro;
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
@@ -22,15 +22,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         _background.sprite = _backgrounds[Random.Range(0, _backgrounds.Count - 1)];
-        if (PlayerPrefs.HasKey("IsSound") && PlayerPrefs.GetInt("IsSound") == 0)
-        {
-            _soundsToggleButton.isOn = false;
-        }
-
-        if (PlayerPrefs.HasKey("IsMusic") && PlayerPrefs.GetInt("IsMusic") == 0)
-        {
-            _musicToggleButton.isOn = false;
-        }
+        if (PlayerPrefs.HasKey("IsSound") && PlayerPrefs.GetInt("IsSound") == 0) _soundsToggleButton.isOn = false;
+        if (PlayerPrefs.HasKey("IsMusic") && PlayerPrefs.GetInt("IsMusic") == 0) _musicToggleButton.isOn = false;
     }
 
     public void UpdateSteps(int steps)
@@ -100,8 +93,10 @@ public class UIManager : MonoBehaviour
     {
         for(int i = 0; i < QuestsManager.Quests.Count; i++)
         {
-            QuestsManager.Quests[i].ProgressText.text = QuestsManager.Quests[i].CurrentProgress.ToString() + "/" + QuestsManager.Quests[i].MaxProgress.ToString();
-            QuestsManager.Quests[i].ProgressBar.fillAmount = QuestsManager.Quests[i].ProgressFillPerOne * QuestsManager.Quests[i].CurrentProgress;
+            QuestsManager.Quests[i].ProgressText.text = 
+                QuestsManager.Quests[i].CurrentProgress.ToString() + "/" + QuestsManager.Quests[i].MaxProgress.ToString();
+            QuestsManager.Quests[i].ProgressBar.fillAmount = 
+                QuestsManager.Quests[i].ProgressFillPerOne * QuestsManager.Quests[i].CurrentProgress;
         }
     }
 

@@ -57,7 +57,8 @@ public class TileGenerator : MonoBehaviour
         {
             for(int j = 0;j< Y; j++)
             {
-                AllTiles[i, j] = Instantiate(TilePrefab, new Vector3(StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20),Quaternion.identity).GetComponent<Tile>();
+                AllTiles[i, j] = Instantiate(TilePrefab, new Vector3
+                    (StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20),Quaternion.identity).GetComponent<Tile>();
                 AllTiles[i, j].transform.SetParent(TilesObjectsTransform);
             }
         }
@@ -80,7 +81,8 @@ public class TileGenerator : MonoBehaviour
         {
             for (int j = 0; j < Y; j++)
             {
-                AllTiles[i, j] = Instantiate(TilePrefab, new Vector3(StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20), Quaternion.identity).GetComponent<Tile>();
+                AllTiles[i, j] = Instantiate(TilePrefab, new Vector3
+                    (StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20), Quaternion.identity).GetComponent<Tile>();
                 EditorTileGenerator.ApplyConfigState(AllTiles[i, j], _levelConfig.AllTiles[i, j]);
                 AllTiles[i, j].transform.SetParent(TilesObjectsTransform);
             }
@@ -98,13 +100,15 @@ public class TileGenerator : MonoBehaviour
                     {
                         if (_levelConfig.AllBariers[i, j].Heal == 2)
                         {
-                            AllBariers[i, j] = Instantiate(BarriersPrefabs[0], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Barrier>();
+                            AllBariers[i, j] = Instantiate(BarriersPrefabs[0], AllTiles[i, j].transform.position, Quaternion.identity)
+                                .GetComponent<Barrier>();
                             AllBariers[i, j].X = i;
                             AllBariers[i, j].Y = j;
                         }
                         else
                         {
-                            AllBariers[i, j] = Instantiate(BarriersPrefabs[1], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Barrier>();
+                            AllBariers[i, j] = Instantiate(BarriersPrefabs[1], AllTiles[i, j].transform.position, Quaternion.identity)
+                                .GetComponent<Barrier>();
                             AllBariers[i, j].X = i;
                             AllBariers[i, j].Y = j;
                         }
@@ -113,13 +117,15 @@ public class TileGenerator : MonoBehaviour
                     {
                         if (_levelConfig.AllBariers[i, j].Heal == 2)
                         {
-                            AllBariers[i, j] = Instantiate(BarriersPrefabs[2], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Barrier>();
+                            AllBariers[i, j] = Instantiate(BarriersPrefabs[2], AllTiles[i, j].transform.position, Quaternion.identity)
+                                .GetComponent<Barrier>();
                             AllBariers[i, j].X = i;
                             AllBariers[i, j].Y = j;
                         }
                         else
                         {
-                            AllBariers[i, j] = Instantiate(BarriersPrefabs[3], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Barrier>();
+                            AllBariers[i, j] = Instantiate(BarriersPrefabs[3], AllTiles[i, j].transform.position, Quaternion.identity)
+                                .GetComponent<Barrier>();
                             AllBariers[i, j].X = i;
                             AllBariers[i, j].Y = j;
                         }
@@ -144,7 +150,8 @@ public class TileGenerator : MonoBehaviour
                 {
                     for (int j = 0; j < AllTiles.GetLength(1); j++)
                     {
-                        AllTiles[i, j].transform.position = new Vector3(AllTiles[i, j].transform.position.x + 0.5f, AllTiles[i, j].transform.position.y, 20);
+                        AllTiles[i, j].transform.position = new Vector3
+                            (AllTiles[i, j].transform.position.x + 0.5f, AllTiles[i, j].transform.position.y, 20);
                     }
                 }
             }
@@ -155,7 +162,8 @@ public class TileGenerator : MonoBehaviour
                 {
                     for (int j = 0; j < AllTiles.GetLength(1); j++)
                     {
-                        AllTiles[i, j].transform.position = new Vector3(AllTiles[i, j].transform.position.x - 0.5f, AllTiles[i, j].transform.position.y, 20);
+                        AllTiles[i, j].transform.position = new Vector3
+                            (AllTiles[i, j].transform.position.x - 0.5f, AllTiles[i, j].transform.position.y, 20);
                     }
                 }
             }
@@ -175,7 +183,8 @@ public class TileGenerator : MonoBehaviour
                 int randomValue = Random.Range(0, 100);
                 if (randomValue > 70)
                 {
-                    AllBariers[i, j] = Instantiate(BarriersPrefabs[Random.Range(0, BarriersPrefabs.Count)], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Barrier>();
+                    AllBariers[i, j] = Instantiate(BarriersPrefabs[Random.Range(0, BarriersPrefabs.Count)], 
+                        AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Barrier>();
                     AllBariers[i, j].X = i;
                     AllBariers[i, j].Y = j;
                     AllTiles[i, j].IsBarried = true;
@@ -195,7 +204,8 @@ public class TileGenerator : MonoBehaviour
             {
                 if(AllTiles[i,j] != null)
                 {
-                    AllItems[i,j] = Instantiate(_itemsPrefabs[Random.Range(0, _itemsPrefabs.Count)], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
+                    AllItems[i,j] = Instantiate(_itemsPrefabs[Random.Range(0, _itemsPrefabs.Count)], 
+                        AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
                     AllItems[i, j].GetComponent<Item>().X = i;
                     AllItems[i, j].GetComponent<Item>().Y = j;
                     AllItems[i, j].transform.SetParent(ItemsObjectsTransform);
@@ -212,7 +222,8 @@ public class TileGenerator : MonoBehaviour
             {
                 if(AllItems[i,j] == null)
                 {
-                    AllItems[i, j] = Instantiate(_itemsPrefabs[Random.Range(0, _itemsPrefabs.Count)], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
+                    AllItems[i, j] = Instantiate(_itemsPrefabs[Random.Range(0, _itemsPrefabs.Count)], 
+                        AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
                     AllItems[i, j].transform.localScale = Vector3.zero;
                     AllItems[i, j].GetComponent<Item>().X = i;
                     AllItems[i, j].GetComponent<Item>().Y = j;
@@ -232,9 +243,11 @@ public class TileGenerator : MonoBehaviour
                 if(AllItems[i,j] == null)
                 {
                     if(bonusType == Item.BonusType.Rocket)
-                        AllItems[i, j] = Instantiate(_tileGenerator._rocketPrefab, AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
+                        AllItems[i, j] = Instantiate(_tileGenerator._rocketPrefab, 
+                            AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
                     else
-                        AllItems[i, j] = Instantiate(_tileGenerator._bombPrefab, AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
+                        AllItems[i, j] = Instantiate(_tileGenerator._bombPrefab, 
+                            AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
                     AllItems[i, j].transform.DOScale(1, 0.5f);
                     AllItems[i, j].X = i;
                     AllItems[i,j].Y = j;
@@ -316,7 +329,8 @@ public class TileGenerator : MonoBehaviour
             {
                 if (AllBariers[i, j] != null) continue;
                 MatchManager.DestroyAfterAnim(AllItems[i, j]);
-                AllItems[i, j] = Instantiate(_itemsPrefabs[Random.Range(0, _itemsPrefabs.Count)], AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
+                AllItems[i, j] = Instantiate(_itemsPrefabs[Random.Range(0, _itemsPrefabs.Count)], 
+                    AllTiles[i, j].transform.position, Quaternion.identity).GetComponent<Item>();
                 AllItems[i, j].transform.localScale = Vector3.zero;
                 AllItems[i, j].GetComponent<Item>().X = i;
                 AllItems[i, j].GetComponent<Item>().Y = j;
@@ -330,11 +344,13 @@ public class TileGenerator : MonoBehaviour
     public static void UpdateCameraSize()
     {
         Camera.main.orthographicSize = 3;
-        Vector3 firstTilePos = Camera.main.WorldToScreenPoint(new Vector3(AllTiles[0, 0].transform.position.x-0.5f,AllTiles[0,0].transform.position.y - 0.5f));
+        Vector3 firstTilePos = Camera.main.WorldToScreenPoint(new Vector3
+            (AllTiles[0, 0].transform.position.x-0.5f,AllTiles[0,0].transform.position.y - 0.5f));
         while(firstTilePos.x < 0 || firstTilePos.y < 0)
         {
             Camera.main.orthographicSize += 0.1f;
-            firstTilePos = Camera.main.WorldToScreenPoint(new Vector3(AllTiles[0, 0].transform.position.x - 0.5f, AllTiles[0, 0].transform.position.y - 0.5f));
+            firstTilePos = Camera.main.WorldToScreenPoint(new Vector3
+                (AllTiles[0, 0].transform.position.x - 0.5f, AllTiles[0, 0].transform.position.y - 0.5f));
         }
         Camera.main.orthographicSize += 0.2f;
     }

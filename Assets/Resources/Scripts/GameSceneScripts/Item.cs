@@ -1,4 +1,3 @@
-
 public class Item : MoveableObject
 {
     public BonusType bonusType;

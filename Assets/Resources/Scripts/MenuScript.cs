@@ -1,10 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Newtonsoft.Json;
-using System.IO;
-using System.Collections;
 using UnityEngine.Localization.Settings;
+using Newtonsoft.Json;
 
 public class MenuScript : MonoBehaviour
 {
@@ -19,9 +19,10 @@ public class MenuScript : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         if(PlayerPrefs.HasKey("IsMusic") && PlayerPrefs.GetInt("IsMusic") == 0) _audioSource.enabled = false;
         Background.sprite = Backgrounds[Random.Range(0, Backgrounds.Count - 1)];
-        Instantiate(ItemsPrefabs[Random.Range(0, ItemsPrefabs.Count - 1)], new Vector3(0, 1.8f), Quaternion.identity).transform.localScale = new Vector3(2, 2);
+        Instantiate(ItemsPrefabs[Random.Range(0, ItemsPrefabs.Count - 1)], 
+            new Vector3(0, 1.8f), Quaternion.identity).transform.localScale = new Vector3(2, 2);
         SetLastConfig();
-        yield return UnityEngine.Localization.Settings.LocalizationSettings.InitializationOperation;
+        yield return LocalizationSettings.InitializationOperation;
         if (PlayerPrefs.HasKey("GameLanguage"))
         {
             if(PlayerPrefs.GetString("GameLanguage") == "ru")

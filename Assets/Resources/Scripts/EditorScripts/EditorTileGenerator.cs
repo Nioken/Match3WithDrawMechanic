@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
-using System.IO;
 
 public class EditorTileGenerator : TileGenerator
 {
@@ -31,20 +28,9 @@ public class EditorTileGenerator : TileGenerator
             EditorUIManager._editorUIManager.HeightSlider.value = Y;
             EditorUIManager._editorUIManager.WidthSlider.value = X;
             UpdateSizeByConfig();
-            if (!_levelConfig.ScoreQuest)
-            {
-                EditorUIManager._editorUIManager.ScoreQuestToggle.isOn = false;
-            }
-
-            if (!_levelConfig.ItemQuest)
-            {
-                EditorUIManager._editorUIManager.ItemQuestToggle.isOn = false;
-            }
-
-            if (!_levelConfig.BarrierQuest)
-            {
-                EditorUIManager._editorUIManager.BarrierQuestToggle.isOn = false;
-            }
+            if (!_levelConfig.ScoreQuest) EditorUIManager._editorUIManager.ScoreQuestToggle.isOn = false;
+            if (!_levelConfig.ItemQuest) EditorUIManager._editorUIManager.ItemQuestToggle.isOn = false;
+            if (!_levelConfig.BarrierQuest) EditorUIManager._editorUIManager.BarrierQuestToggle.isOn = false;
             return;
         }
 
@@ -87,7 +73,8 @@ public class EditorTileGenerator : TileGenerator
         {
             for (int j = 0; j < Y; j++)
             {
-                AllTiles[i, j] = Instantiate(TilePrefab, new Vector3(StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20), Quaternion.identity).GetComponent<Tile>();
+                AllTiles[i, j] = Instantiate(TilePrefab, new Vector3
+                    (StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20), Quaternion.identity).GetComponent<Tile>();
                 AllTiles[i, j].gameObject.AddComponent<BoxCollider>();
                 AllTiles[i, j].X = i;
                 AllTiles[i, j].Y = j;
@@ -108,7 +95,8 @@ public class EditorTileGenerator : TileGenerator
         {
             for (int j = 0; j < Y; j++)
             {
-                AllTiles[i, j] = Instantiate(TilePrefab, new Vector3(StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20), Quaternion.identity).GetComponent<Tile>();
+                AllTiles[i, j] = Instantiate(TilePrefab, new Vector3
+                    (StartPosition.x + 1f * i, StartPosition.y + 1f * j, 20), Quaternion.identity).GetComponent<Tile>();
                 ApplyConfigState(AllTiles[i, j], _levelConfig.AllTiles[i, j]);
                 AllTiles[i, j].gameObject.AddComponent<BoxCollider>();
                 AllTiles[i, j].transform.SetParent(TilesObjectsTransform);
@@ -164,24 +152,21 @@ public class EditorTileGenerator : TileGenerator
     {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out _hit))
         {
-            if (_hit.collider.tag == "Tile")
+            if (_hit.collider.tag == "Tile" && CurrentBarrier != null)
             {
-                if (CurrentBarrier != null)
+                for (int i = 0; i < X; i++)
                 {
-                    for (int i = 0; i < X; i++)
+                    for (int j = 0; j < Y; j++)
                     {
-                        for (int j = 0; j < Y; j++)
+                        if (_hit.collider.gameObject == AllTiles[i, j].gameObject)
                         {
-                            if (_hit.collider.gameObject == AllTiles[i, j].gameObject)
-                            {
-                                if (AllBariers[i, j] != null) return;
-                                AllBariers[i, j] = Instantiate(CurrentBarrier, AllTiles[i, j].transform.position, Quaternion.identity);
-                                AllBariers[i, j].X = i;
-                                AllBariers[i, j].Y = j;
-                                AllTiles[i, j].IsBarried = true;
-                                AllBariers[i, j].transform.SetParent(BarriersObjectsTransform);
-                                UpdateConfig();
-                            }
+                            if (AllBariers[i, j] != null) return;
+                            AllBariers[i, j] = Instantiate(CurrentBarrier, AllTiles[i, j].transform.position, Quaternion.identity);
+                            AllBariers[i, j].X = i;
+                            AllBariers[i, j].Y = j;
+                            AllTiles[i, j].IsBarried = true;
+                            AllBariers[i, j].transform.SetParent(BarriersObjectsTransform);
+                            UpdateConfig();
                         }
                     }
                 }
@@ -205,7 +190,8 @@ public class EditorTileGenerator : TileGenerator
                 _levelConfig.AllTiles[i, j] = tmp;
                 if (AllBariers[i, j] != null)
                 {
-                    LevelConfig.BarrierInfo tmpBarrier = new LevelConfig.BarrierInfo(AllBariers[i, j].X, AllBariers[i, j].Y, AllBariers[i, j].Heal, AllBariers[i, j].Type);
+                    LevelConfig.BarrierInfo tmpBarrier = new LevelConfig.BarrierInfo
+                        (AllBariers[i, j].X, AllBariers[i, j].Y, AllBariers[i, j].Heal, AllBariers[i, j].Type);
                     _levelConfig.AllBariers[i, j] = tmpBarrier;
                 }
             }
@@ -237,34 +223,22 @@ public class EditorTileGenerator : TileGenerator
     public void Update()
     {
 
-#region AndoridInput
+        #region AndoridInput
 
 #if UNITY_ANDROID
-
-        if (Input.touchCount > 0)
-        {
-            if (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Moved)
-            {
-                PlayerInput();
-            }
-        }
-
+        if (Input.touchCount > 0 && (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Moved))
+            PlayerInput();
 #endif
 
-#endregion
+        #endregion
 
-#region EditorInput
+        #region EditorInput
 
 #if UNITY_EDITOR
-
-        if (Input.GetMouseButton(0))
-        {
-            PlayerInput();
-        }
-
+        if (Input.GetMouseButton(0)) PlayerInput();
 #endif
 
-#endregion
+        #endregion
 
     }
 }

@@ -1,11 +1,10 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
-using System;
 using UnityEngine.Localization.Settings;
+using TMPro;
 
 public class EditorUIManager : MonoBehaviour
 {

@@ -17,10 +17,12 @@ public class QuestsManager : MonoBehaviour
    
     public static void SpawnScoreQuest(int maxProgress)
     {
-        Quests.Add(Instantiate(_questsManager._scoreQuestPrefab, _questsManager._uiCanvas.transform.GetChild(1)).GetComponent<Quest>());
+        Quests.Add(Instantiate(_questsManager._scoreQuestPrefab, _questsManager._uiCanvas.transform.GetChild(1))
+            .GetComponent<Quest>());
         Quests[Quests.Count - 1].Type = Quest.QuestType.ScoreQuest;
         Quests[Quests.Count - 1].MaxProgress = maxProgress;
-        Quests[Quests.Count - 1].GetComponent<RectTransform>().anchoredPosition = new Vector2(10, 640 - (110 * Quests.Count - 2));
+        Quests[Quests.Count - 1].GetComponent<RectTransform>().anchoredPosition = 
+            new Vector2(10, 640 - (110 * Quests.Count - 2));
     }  
     
     public static void UpdateScoreProgress(int progress)
@@ -34,10 +36,12 @@ public class QuestsManager : MonoBehaviour
     
     public static void SpawnItemQuest(int maxProgress)
     {
-        Quests.Add(Instantiate(_questsManager._itemQuestPrefab, _questsManager._uiCanvas.transform.GetChild(1)).GetComponent<Quest>());
+        Quests.Add(Instantiate(_questsManager._itemQuestPrefab, _questsManager._uiCanvas.transform.GetChild(1))
+            .GetComponent<Quest>());
         Quests[Quests.Count - 1].Type = Quest.QuestType.ItemQuest;
         Quests[Quests.Count - 1].MaxProgress = maxProgress;
-        Quests[Quests.Count - 1].GetComponent<RectTransform>().anchoredPosition = new Vector2(10, 640 - (110 * Quests.Count - 2));
+        Quests[Quests.Count - 1].GetComponent<RectTransform>().anchoredPosition = 
+            new Vector2(10, 640 - (110 * Quests.Count - 2));
     }
 
     public static void UpdateItemProgress(Item item)
@@ -51,9 +55,11 @@ public class QuestsManager : MonoBehaviour
 
     public static void SpawnBariersQuest()
     {
-        Quests.Add(Instantiate(_questsManager._bariersQuestPrefab, _questsManager._uiCanvas.transform.GetChild(1)).GetComponent<Quest>());
+        Quests.Add(Instantiate(_questsManager._bariersQuestPrefab, _questsManager._uiCanvas.transform.GetChild(1))
+            .GetComponent<Quest>());
         Quests[Quests.Count - 1].Type = Quest.QuestType.BarrierQuest;
-        Quests[Quests.Count - 1].GetComponent<RectTransform>().anchoredPosition = new Vector2(10, 640 - (110 * Quests.Count - 2));
+        Quests[Quests.Count - 1].GetComponent<RectTransform>().anchoredPosition =
+            new Vector2(10, 640 - (110 * Quests.Count - 2));
     }
     
     public static void UpdateBarrierProgress(Barrier barrier)

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using DG.Tweening;
 
 public class Quest : MonoBehaviour
@@ -89,9 +89,7 @@ public class Quest : MonoBehaviour
                         for (int j = 0; j < TileGenerator.Y; j++)
                         {
                             if (TileGenerator.AllBariers[i, j] != null && TileGenerator.AllBariers[i, j].Type == BarrierToCount)
-                            {
                                 MaxProgress++;
-                            }
                         }
                     }
                     if(MaxProgress <= 0)
