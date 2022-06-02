@@ -21,7 +21,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
@@ -39,8 +38,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.RandomBrush
     Unity.AdaptivePerformance.Editor.dll:
     - UnityEditor.AdaptivePerformance.Editor.AdaptivePerformanceGeneralSettingsPerBuildTarget
-    Unity.AdaptivePerformance.Simulator.Editor.dll:
-    - UnityEditor.AdaptivePerformance.Simulator.Editor.SimulatorProviderSettings
     Unity.AdaptivePerformance.dll:
     - UnityEngine.AdaptivePerformance.AdaptivePerformanceGeneralSettings
     - UnityEngine.AdaptivePerformance.AdaptivePerformanceManagerSettings
@@ -56,17 +53,13 @@ ScriptsOnlyBuild:
     - UnityEditor.AddressableAssets.Settings.GroupSchemas.BundledAssetGroupSchema
     - UnityEditor.AddressableAssets.Settings.GroupSchemas.ContentUpdateGroupSchema
     - UnityEditor.AddressableAssets.Settings.GroupSchemas.PlayerDataGroupSchema
-    Unity.Localization.Editor.dll:
-    - UnityEditor.Localization.StringTableCollection
-    - UnityEditor.Localization.UI.LocalizationSettingsEditor
     Unity.Localization.dll:
     - UnityEngine.Localization.Components.LocalizeStringEvent
     - UnityEngine.Localization.Locale
+    - UnityEngine.Localization.LocalizationBehaviour
     - UnityEngine.Localization.Settings.LocalizationSettings
     - UnityEngine.Localization.Tables.SharedTableData
     - UnityEngine.Localization.Tables.StringTable
-    Unity.Mobile.AndroidLogcat.Editor.dll:
-    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -129,9 +122,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Localization.SmartFormat.Extensions.XElementFormatter
     - UnityEngine.Localization.SmartFormat.Extensions.XmlSource
     - UnityEngine.Localization.SmartFormat.SmartFormatter
-    - UnityEngine.Localization.Tables.DistributedUIDGenerator
-    - UnityEngine.Localization.Tables.SharedTableData/SharedTableEntry
-    - UnityEngine.Localization.Tables.TableEntryData
     - UnityEngine.Localization.Tables.TableEntryReference
     - UnityEngine.Localization.Tables.TableReference
     Unity.TextMeshPro:
@@ -329,37 +319,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1620}
     - Class: 114
-      Script: {instanceID: 2998}
+      Script: {instanceID: 3000}
     - Class: 114
-      Script: {instanceID: 3258}
+      Script: {instanceID: 3260}
     - Class: 114
-      Script: {instanceID: 3572}
+      Script: {instanceID: 3574}
     - Class: 114
-      Script: {instanceID: 4020}
+      Script: {instanceID: 4022}
     - Class: 114
-      Script: {instanceID: 6928}
+      Script: {instanceID: 6930}
     - Class: 114
-      Script: {instanceID: 7028}
+      Script: {instanceID: 7030}
     - Class: 114
-      Script: {instanceID: 7056}
+      Script: {instanceID: 7058}
     - Class: 114
-      Script: {instanceID: 7120}
+      Script: {instanceID: 7122}
     - Class: 114
-      Script: {instanceID: 7250}
+      Script: {instanceID: 7252}
     - Class: 114
-      Script: {instanceID: 7464}
+      Script: {instanceID: 7466}
     - Class: 114
-      Script: {instanceID: 7710}
+      Script: {instanceID: 7712}
     - Class: 114
-      Script: {instanceID: 8204}
+      Script: {instanceID: 8206}
     - Class: 114
-      Script: {instanceID: 8460}
+      Script: {instanceID: 8462}
     - Class: 114
-      Script: {instanceID: 8998}
+      Script: {instanceID: 9000}
     - Class: 114
-      Script: {instanceID: 9020}
+      Script: {instanceID: 9022}
     - Class: 114
-      Script: {instanceID: 10086}
+      Script: {instanceID: 10088}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -410,45 +400,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1620}
     - Class: 114
-      Script: {instanceID: 1940}
+      Script: {instanceID: 1942}
     - Class: 114
-      Script: {instanceID: 2998}
+      Script: {instanceID: 3000}
     - Class: 114
-      Script: {instanceID: 3258}
+      Script: {instanceID: 3260}
     - Class: 114
-      Script: {instanceID: 3572}
+      Script: {instanceID: 3574}
     - Class: 114
-      Script: {instanceID: 3822}
+      Script: {instanceID: 3824}
     - Class: 114
-      Script: {instanceID: 4020}
+      Script: {instanceID: 4022}
     - Class: 114
-      Script: {instanceID: 5452}
+      Script: {instanceID: 5454}
     - Class: 114
-      Script: {instanceID: 6332}
+      Script: {instanceID: 6334}
     - Class: 114
-      Script: {instanceID: 6474}
+      Script: {instanceID: 6476}
     - Class: 114
-      Script: {instanceID: 6968}
+      Script: {instanceID: 6970}
     - Class: 114
-      Script: {instanceID: 7028}
+      Script: {instanceID: 7030}
     - Class: 114
-      Script: {instanceID: 7056}
+      Script: {instanceID: 7058}
     - Class: 114
-      Script: {instanceID: 7250}
+      Script: {instanceID: 7252}
     - Class: 114
-      Script: {instanceID: 7710}
+      Script: {instanceID: 7712}
     - Class: 114
-      Script: {instanceID: 8204}
+      Script: {instanceID: 8206}
     - Class: 114
-      Script: {instanceID: 8460}
+      Script: {instanceID: 8462}
     - Class: 114
-      Script: {instanceID: 9020}
+      Script: {instanceID: 9022}
     - Class: 114
-      Script: {instanceID: 10086}
+      Script: {instanceID: 10088}
     - Class: 114
-      Script: {instanceID: 10736}
+      Script: {instanceID: 10738}
     - Class: 114
-      Script: {instanceID: 11548}
+      Script: {instanceID: 11550}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -505,53 +495,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1620}
     - Class: 114
-      Script: {instanceID: 2104}
+      Script: {instanceID: 2568}
     - Class: 114
-      Script: {instanceID: 2566}
+      Script: {instanceID: 3260}
     - Class: 114
-      Script: {instanceID: 2998}
+      Script: {instanceID: 3362}
     - Class: 114
-      Script: {instanceID: 3258}
+      Script: {instanceID: 3574}
     - Class: 114
-      Script: {instanceID: 3360}
+      Script: {instanceID: 4022}
     - Class: 114
-      Script: {instanceID: 3572}
+      Script: {instanceID: 4586}
     - Class: 114
-      Script: {instanceID: 4020}
+      Script: {instanceID: 5500}
     - Class: 114
-      Script: {instanceID: 4584}
+      Script: {instanceID: 5674}
     - Class: 114
-      Script: {instanceID: 4882}
+      Script: {instanceID: 6106}
     - Class: 114
-      Script: {instanceID: 5498}
+      Script: {instanceID: 6334}
     - Class: 114
-      Script: {instanceID: 5672}
+      Script: {instanceID: 7058}
     - Class: 114
-      Script: {instanceID: 6104}
+      Script: {instanceID: 7252}
     - Class: 114
-      Script: {instanceID: 6332}
+      Script: {instanceID: 7712}
     - Class: 114
-      Script: {instanceID: 6474}
+      Script: {instanceID: 8206}
     - Class: 114
-      Script: {instanceID: 7056}
+      Script: {instanceID: 8462}
     - Class: 114
-      Script: {instanceID: 7250}
-    - Class: 114
-      Script: {instanceID: 7710}
-    - Class: 114
-      Script: {instanceID: 7740}
-    - Class: 114
-      Script: {instanceID: 8204}
-    - Class: 114
-      Script: {instanceID: 8460}
-    - Class: 114
-      Script: {instanceID: 8504}
-    - Class: 114
-      Script: {instanceID: 9020}
-    - Class: 114
-      Script: {instanceID: 10086}
-    - Class: 114
-      Script: {instanceID: 11300}
+      Script: {instanceID: 9022}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -559,8 +533,6 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
-      Script: {instanceID: 0}
-    - Class: 210
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -1529,12 +1501,6 @@ ScriptsOnlyBuild:
     className: LocalizeStringEvent
   - hash:
       serializedVersion: 2
-      Hash: 2ff160dfc344e0a4136a4a9bd8ec11bf
-    assemblyName: Unity.Localization.Editor.dll
-    namespaceName: UnityEditor.Localization
-    className: StringTableCollection
-  - hash:
-      serializedVersion: 2
       Hash: f6831ac80ec81c5d5b370c0ed0fee997
     assemblyName: Unity.VisualScripting.State.dll
     namespaceName: Unity.VisualScripting
@@ -2054,4 +2020,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/GameScene.unity
   - Assets/Scenes/EditorScene.unity
-  playerPath: C:/Users/Nioke/Match3 Draw/Match3WithDrawMechanic/BlueStacksBuild.apk
+  playerPath: C:/Users/Nioke/Match3 Draw/Match3WithDrawMechanic/Build.apk
