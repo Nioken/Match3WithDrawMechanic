@@ -10,6 +10,7 @@ TagManager:
   - Item_Red
   - Item_Orange
   - Bonus
+  - Tile
   layers:
   - Default
   - TransparentFX

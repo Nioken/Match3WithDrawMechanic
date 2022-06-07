@@ -206,19 +206,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 15101237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateCurrentBarrier
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 4516547121487838018, guid: 7f9622dd5f423224d9fde312174a3e12, type: 3}
-          m_ObjectArgumentAssemblyTypeName: Barrier, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &15101237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,19 +328,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 60238624}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: PlayWithConfig
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &60238624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +379,7 @@ GameObject:
   - component: {fileID: 133831455}
   - component: {fileID: 133831454}
   m_Layer: 5
-  m_Name: ImageBG
+  m_Name: ItemQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,6 +445,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133831452}
   m_CullTransparentMesh: 1
+--- !u!1 &145219150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 145219152}
+  - component: {fileID: 145219151}
+  m_Layer: 0
+  m_Name: EditorTileGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &145219151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145219150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6628ca00e5d8e94d803408fb09bbfe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tilePrefab: {fileID: 9179981402804126729, guid: 6c29732e8ab89e044aa29926c8a3f33b, type: 3}
+  _levelConfig: {fileID: 11400000, guid: 64a58b7a3b08a3e45b5326a32edd3918, type: 2}
+  _rocketPrefab: {fileID: 0}
+  _bombPrefab: {fileID: 0}
+  _itemsPrefabs: []
+  BarriersPrefabs:
+  - {fileID: 6829346331018239843, guid: d35cf624890ba124eb965b7090b3ab5c, type: 3}
+  - {fileID: 4840288916605984100, guid: c727764ac87b2c045b7bb1eba47189f0, type: 3}
+  - {fileID: 4516547121487838018, guid: 7f9622dd5f423224d9fde312174a3e12, type: 3}
+  - {fileID: 463031978027363124, guid: df3f39f7a9ff56c45a0cf941cf8336fd, type: 3}
+  StartPosition: {x: 0, y: 0, z: 0}
+  TilesObjectsTransform: {fileID: 697911231}
+  ItemsObjectsTransform: {fileID: 0}
+  BarriersObjectsTransform: {fileID: 665649069}
+--- !u!4 &145219152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145219150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.33981544, y: 0.5705728, z: -0.12176646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &154757432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,31 +1145,7 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateBarrierQuestToggle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1426478271}
-        m_TargetAssemblyTypeName: EditorTileGenerator, Assembly-CSharp
-        m_MethodName: UpdateConfig
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
 --- !u!1 &451138813
 GameObject:
@@ -1304,31 +1314,7 @@ MonoBehaviour:
   m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateWidth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1426478271}
-        m_TargetAssemblyTypeName: EditorTileGenerator, Assembly-CSharp
-        m_MethodName: UpdateSize
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &594565294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,19 +1398,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 594565297}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateCurrentBarrier
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 463031978027363124, guid: df3f39f7a9ff56c45a0cf941cf8336fd, type: 3}
-          m_ObjectArgumentAssemblyTypeName: Barrier, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &594565297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1801,19 +1775,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 744309136}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateCurrentBarrier
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 6829346331018239843, guid: d35cf624890ba124eb965b7090b3ab5c, type: 3}
-          m_ObjectArgumentAssemblyTypeName: Barrier, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &776524890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,31 +2069,7 @@ MonoBehaviour:
   m_CharacterLimit: 3
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateSteps
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1426478271}
-        m_TargetAssemblyTypeName: EditorTileGenerator, Assembly-CSharp
-        m_MethodName: UpdateConfig
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -2631,19 +2569,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 927230152}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateCurrentBarrier
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 4840288916605984100, guid: c727764ac87b2c045b7bb1eba47189f0, type: 3}
-          m_ObjectArgumentAssemblyTypeName: Barrier, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &927230152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2841,19 +2767,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1063588594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: ToMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1063588594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2983,31 +2897,7 @@ MonoBehaviour:
   m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateHeight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1426478271}
-        m_TargetAssemblyTypeName: EditorTileGenerator, Assembly-CSharp
-        m_MethodName: UpdateSize
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1163484559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,7 +3163,7 @@ GameObject:
   - component: {fileID: 1179782816}
   - component: {fileID: 1179782815}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ExitSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3342,19 +3232,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1179782816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: HideQuestSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1179782816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3781,19 +3659,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1378984306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: ShowQuestSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1378984306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3916,31 +3782,7 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateScoreQuestToggle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1426478271}
-        m_TargetAssemblyTypeName: EditorTileGenerator, Assembly-CSharp
-        m_MethodName: UpdateConfig
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
 --- !u!1 &1426478267
 GameObject:
@@ -3953,7 +3795,6 @@ GameObject:
   - component: {fileID: 1426478270}
   - component: {fileID: 1426478269}
   - component: {fileID: 1426478268}
-  - component: {fileID: 1426478271}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4027,32 +3868,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1426478271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426478267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6628ca00e5d8e94d803408fb09bbfe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelConfig: {fileID: 11400000, guid: 64a58b7a3b08a3e45b5326a32edd3918, type: 2}
-  _rocketPrefab: {fileID: 0}
-  _bombPrefab: {fileID: 0}
-  _itemsPrefabs: []
-  TilePrefab: {fileID: 6547914807049865639, guid: 6c29732e8ab89e044aa29926c8a3f33b, type: 3}
-  BarriersPrefabs:
-  - {fileID: 6829346331018239843, guid: d35cf624890ba124eb965b7090b3ab5c, type: 3}
-  - {fileID: 4840288916605984100, guid: c727764ac87b2c045b7bb1eba47189f0, type: 3}
-  - {fileID: 4516547121487838018, guid: 7f9622dd5f423224d9fde312174a3e12, type: 3}
-  - {fileID: 463031978027363124, guid: df3f39f7a9ff56c45a0cf941cf8336fd, type: 3}
-  StartPosition: {x: 0, y: 0, z: 0}
-  TilesObjectsTransform: {fileID: 697911231}
-  ItemsObjectsTransform: {fileID: 0}
-  BarriersObjectsTransform: {fileID: 665649069}
 --- !u!1 &1460534330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,6 +4061,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5da0d080f9b5845b9b72003535afaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toMenuButton: {fileID: 1063588593}
+  _playButton: {fileID: 60238623}
+  _showQuestUIButton: {fileID: 1378984305}
+  _hideQuestUIButton: {fileID: 1179782815}
+  _rockButton: {fileID: 744309138}
+  _rockBrockenButton: {fileID: 927230151}
+  _iceButton: {fileID: 15101236}
+  _iceBrockenButton: {fileID: 594565296}
   _background: {fileID: 1886393623}
   _backgrounds:
   - {fileID: 21300000, guid: 059be570b86883a458ae9fec1fe8e3c1, type: 3}
@@ -4254,6 +4077,7 @@ MonoBehaviour:
   _heightText: {fileID: 1577757014}
   _widthText: {fileID: 400041274}
   _levelConfig: {fileID: 11400000, guid: 64a58b7a3b08a3e45b5326a32edd3918, type: 2}
+  _editorTileGenerator: {fileID: 145219151}
   HeightSlider: {fileID: 1132289542}
   WidthSlider: {fileID: 528078214}
   StepsField: {fileID: 818018486}
@@ -5027,7 +4851,7 @@ GameObject:
   - component: {fileID: 1886393622}
   - component: {fileID: 1886393623}
   m_Layer: 0
-  m_Name: testBG
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5260,31 +5084,7 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1473834894}
-        m_TargetAssemblyTypeName: EditorUIManager, Assembly-CSharp
-        m_MethodName: UpdateItemQuestToggle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1426478271}
-        m_TargetAssemblyTypeName: EditorTileGenerator, Assembly-CSharp
-        m_MethodName: UpdateConfig
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
 --- !u!1 &2038095044
 GameObject:

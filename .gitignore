@@ -1,4 +1,18 @@
 
-Library/PackageCache/com.unity.burst@1.7.0/.Runtime/hostmac/lld
+Library/
 
-Library/PackageCache/com.unity.burst@1.7.0/.Runtime/libburst-llvm-12.dylib
+# Library/PackageCache/com.unity.burst@1.7.0/.Runtime/libburst-llvm-12.dylib
+
+.vs/
+
+Logs/
+
+UserSettings/
+
+obj/
+
+.vsconfig
+
+*.csproj
+
+*.sln

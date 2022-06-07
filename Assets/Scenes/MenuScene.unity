@@ -340,19 +340,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 470250345}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1979275994}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: SetEnglishLanguage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &470250345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,19 +705,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 927699566}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1979275994}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: ConfigureLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &927699566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +744,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927699563}
   m_CullTransparentMesh: 1
+--- !u!1 &1044922019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1044922021}
+  - component: {fileID: 1044922020}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1044922020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044922019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4267a4c81ec5643b7c58820ca83228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomLevelButton: {fileID: 1498149709}
+  ConfigureLevelButton: {fileID: 927699565}
+  RussianLanguageButton: {fileID: 1101710621}
+  EnglishLanguageButton: {fileID: 470250344}
+  _levelConfig: {fileID: 11400000, guid: 64a58b7a3b08a3e45b5326a32edd3918, type: 2}
+  ItemsPrefabs:
+  - {fileID: 7012692785666559918, guid: 48e2b867fa77df2489266abb9c52c1db, type: 3}
+  - {fileID: 248821332885220579, guid: 28dd42fca7a476d478e583d0b8d8e192, type: 3}
+  - {fileID: 8524833582473063620, guid: 58194b4a856312545a557025edfb6937, type: 3}
+  - {fileID: 8303414405681540157, guid: 0fa72a843191b2e4c924dfe0c98fd45e, type: 3}
+  - {fileID: 7960478234600156822, guid: 61b0811442153784f854e40753a2f925, type: 3}
+  Background: {fileID: 1731987608}
+  Backgrounds:
+  - {fileID: 21300000, guid: 7da852c9c46b80649bfaa61a5fd62690, type: 3}
+  - {fileID: 21300000, guid: 378d93bdecc9ad44d915e83362da4c6e, type: 3}
+  - {fileID: 21300000, guid: 059be570b86883a458ae9fec1fe8e3c1, type: 3}
+--- !u!4 &1044922021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044922019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.33981544, y: 0.5705728, z: -0.12176646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101710619
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,19 +886,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1101710622}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1979275994}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: SetRussinLanguage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1101710622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,19 +1008,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1498149710}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1979275994}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: PlayRandomLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1498149710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,7 +1234,7 @@ GameObject:
   - component: {fileID: 1731987607}
   - component: {fileID: 1731987608}
   m_Layer: 0
-  m_Name: testBG
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1418,7 +1430,6 @@ GameObject:
   - component: {fileID: 1979275993}
   - component: {fileID: 1979275992}
   - component: {fileID: 1979275991}
-  - component: {fileID: 1979275994}
   - component: {fileID: 1979275995}
   m_Layer: 0
   m_Name: Main Camera
@@ -1493,30 +1504,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1979275994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979275990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f4267a4c81ec5643b7c58820ca83228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelConfig: {fileID: 11400000, guid: 64a58b7a3b08a3e45b5326a32edd3918, type: 2}
-  ItemsPrefabs:
-  - {fileID: 7012692785666559918, guid: 48e2b867fa77df2489266abb9c52c1db, type: 3}
-  - {fileID: 248821332885220579, guid: 28dd42fca7a476d478e583d0b8d8e192, type: 3}
-  - {fileID: 8524833582473063620, guid: 58194b4a856312545a557025edfb6937, type: 3}
-  - {fileID: 8303414405681540157, guid: 0fa72a843191b2e4c924dfe0c98fd45e, type: 3}
-  - {fileID: 7960478234600156822, guid: 61b0811442153784f854e40753a2f925, type: 3}
-  Background: {fileID: 1731987608}
-  Backgrounds:
-  - {fileID: 21300000, guid: 7da852c9c46b80649bfaa61a5fd62690, type: 3}
-  - {fileID: 21300000, guid: 378d93bdecc9ad44d915e83362da4c6e, type: 3}
-  - {fileID: 21300000, guid: 059be570b86883a458ae9fec1fe8e3c1, type: 3}
 --- !u!82 &1979275995
 AudioSource:
   m_ObjectHideFlags: 0
