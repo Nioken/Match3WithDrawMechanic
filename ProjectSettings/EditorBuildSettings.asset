@@ -16,6 +16,6 @@ EditorBuildSettings:
     guid: cd25e9d8a4b12774c8ce1de95a8d041c
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 56470ed919cd8224a9334e2cdf0894c7, type: 2}
-    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 743e2828dad6bc249b6d3db835ff7683, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 4d31db08da3e5924a85eaf33dec82f7a, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 93688bd1e9b43a148b3b5b26fca7c7a8, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 7886b378aee3a534095dac111ccdf9b4, type: 2}
