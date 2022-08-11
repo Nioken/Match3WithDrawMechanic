@@ -69,10 +69,10 @@ public class UIManager : MonoBehaviour
     public void UpdateSteps(int steps)
     {
         _stepsText.text = LocalizationSettings.SelectedLocale.LocaleName == "English (en)" ? _stepsText.text = 
-            "Steps: " + steps.ToString() : _stepsText.text = "Шаги: " + steps.ToString();
+            "Steps: " + steps.ToString() : _stepsText.text = "пїЅпїЅпїЅпїЅ: " + steps.ToString();
     }
 
-    public void ShowSettings()
+    private void ShowSettings()
     {
         if (_isInteractive)
         {
@@ -82,13 +82,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void HideSettings()
+    private void HideSettings()
     {
         _settingsUI.transform.DOScale(0, 0.3f).OnComplete(() => _settingsUI.SetActive(false));
         _playerControl.enabled = true;
     }
 
-    public void ToggleMusic()
+    private void ToggleMusic()
     {
         if (_musicToggleButton.isOn)
         {
@@ -105,7 +105,7 @@ public class UIManager : MonoBehaviour
         Settings.WriteSettings();
     }
 
-    public void ToggleSounds()
+    private void ToggleSounds()
     {
         if (_soundsToggleButton.isOn)
         {
@@ -122,7 +122,7 @@ public class UIManager : MonoBehaviour
         Settings.WriteSettings();
     }
 
-    public void ExitMenu()
+    private void ExitMenu()
     {
         QuestsManager.Quests.Clear();
         PlayerControl.PlayerSteps = 100;
@@ -132,12 +132,10 @@ public class UIManager : MonoBehaviour
 
     public static void UpdateQuestsUI()
     {
-        for(var i = 0; i < QuestsManager.Quests.Count; i++)
+        foreach (var quest in QuestsManager.Quests)
         {
-            QuestsManager.Quests[i].ProgressText.text = 
-                QuestsManager.Quests[i].CurrentProgress.ToString() + "/" + QuestsManager.Quests[i].MaxProgress.ToString();
-            QuestsManager.Quests[i].ProgressBar.fillAmount = 
-                QuestsManager.Quests[i].ProgressFillPerOne * QuestsManager.Quests[i].CurrentProgress;
+            quest.ProgressText.text = quest.CurrentProgress + "/" + quest.MaxProgress;
+            quest.ProgressBar.fillAmount = quest.ProgressFillPerOne * quest.CurrentProgress;
         }
     }
 
@@ -156,8 +154,8 @@ public class UIManager : MonoBehaviour
         _playerControl.enabled = false;
         _isInteractive = false;
     }
-    
-    public void RestartLevel()
+
+    private void RestartLevel()
     {
         SceneManager.LoadScene("GameScene");
         QuestsManager.Quests.Clear();

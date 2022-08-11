@@ -10,13 +10,12 @@ public static class MatchManager
 
     public static bool CheckNear(Item checkObject)
     {
-        var lastItem = SelectedItems[SelectedItems.Count - 1];
+        var lastItem = SelectedItems[^1];
         var neighbours = ReturnNeighbours(lastItem.X, lastItem.Y);
-        for(var i = 0; i < neighbours.Count; i++)
-        {
-            if(neighbours[i] == checkObject)
+        
+        foreach (var neighbour in neighbours)
+            if (neighbour == checkObject)
                 return true;
-        }
 
         return false;
     }
@@ -30,27 +29,27 @@ public static class MatchManager
                 if (TileGenerator.AllItems[i, j].IsBonus)
                     return true;
 
-                if (TileGenerator.AllItems[i, j].tag == "Bonus" || TileGenerator.AllBariers[i, j] != null)
-                    continue;
-
                 var checkedItem = TileGenerator.AllItems[i, j];
                 var objectNeibours = ReturnNeighbours(i, j);
-                for(var t = 0;t < objectNeibours.Count; t++)
+                
+                foreach (var neighbour in objectNeibours)
                 {
-                    if (objectNeibours[t] == TileGenerator.AllItems[i, j] || TileGenerator.AllBariers[objectNeibours[t].X,objectNeibours[t].Y] != null) 
+                    if (neighbour == TileGenerator.AllItems[i, j] || TileGenerator.AllBariers[neighbour.X,neighbour.Y] != null) 
                         continue;
 
-                    if(objectNeibours[t].tag == TileGenerator.AllItems[i, j].tag || objectNeibours[t].tag == "Bonus")
+                    if (!neighbour.CompareTag(TileGenerator.AllItems[i, j].tag) &&
+                        !neighbour.CompareTag("Bonus")) 
+                        continue;
+                    
+                    var nextObjectNeibours = ReturnNeighbours(neighbour.X, neighbour.Y);
+                        
+                    foreach (var nextNeighbour in nextObjectNeibours)
                     {
-                        var nextObjectNeibours = ReturnNeighbours(objectNeibours[t].X, objectNeibours[t].Y);
-                        for(var n = 0; n < nextObjectNeibours.Count; n++)
-                        {
-                            if (nextObjectNeibours[n] == objectNeibours[t] || TileGenerator.AllBariers[nextObjectNeibours[n].X, nextObjectNeibours[n].Y] != null) 
-                                continue;
+                        if (nextNeighbour == neighbour || TileGenerator.AllBariers[nextNeighbour.X, nextNeighbour.Y] != null) 
+                            continue;
 
-                            if(nextObjectNeibours[n] != checkedItem && nextObjectNeibours[n].tag == checkedItem.tag || nextObjectNeibours[n].tag == "Bonus")
-                                return true;
-                        }
+                        if(nextNeighbour != checkedItem && nextNeighbour.CompareTag(checkedItem.tag) || nextNeighbour.CompareTag("Bonus"))
+                            return true;
                     }
                 }
             }
@@ -59,45 +58,45 @@ public static class MatchManager
         return false;
     }
 
-    public static void CheckBarriersMatch()
+    private static void CheckBarriersMatch()
     {
         for (var i = 0; i < TileGenerator.Width; i++)
+        for (var j = 0; j < TileGenerator.Height; j++)
         {
-            for (var j = 0; j < TileGenerator.Height; j++)
+            if (TileGenerator.AllBariers[i, j] == null)
+                continue;
+
+            var neighbours = ReturnBarrierNeighbours(i, j);
+
+            foreach (var neighbour in neighbours)
             {
-                if (TileGenerator.AllBariers[i, j] != null)
-                {
-                    var neighbours = ReturnBarrierNeighbours(i, j);
-                    for(var n = 0; n < neighbours.Count; n++)
-                    {
-                        if(neighbours[n] == null)
-                        {
-                            HitBarrier(TileGenerator.AllBariers[i, j]);
-                            break;
-                        }
-                    }
-                }
+                if (neighbour != null)
+                    continue;
+
+                HitBarrier(TileGenerator.AllBariers[i, j]);
+
+                break;
             }
         }
     }
 
-    public static void HitBarrier(Barrier barrier)
+    private static void HitBarrier(Barrier barrier)
     {
         barrier.Heal--;
+
         if (barrier.Heal <= 0)
         {
             TileGenerator.AllTiles[barrier.X, barrier.Y].IsBarried = false;
             TileGenerator.AllBariers[barrier.X, barrier.Y] = null;
+
             QuestsManager.UpdateBarrierProgress(barrier);
+
             barrier.GetComponent<SpriteRenderer>().DOFade(0, 0.6f).OnComplete(() => Object.Destroy(barrier.gameObject));
+
             for (var i = 0; i < TileGenerator.Width; i++)
-            {
-                for (var j = 0; j < TileGenerator.Height; j++)
-                {
-                    if (TileGenerator.AllBariers[i, j] == null)
-                        TileGenerator.AllTiles[i, j].IsBarried = false;
-                }
-            }
+            for (var j = 0; j < TileGenerator.Height; j++)
+                if (TileGenerator.AllBariers[i, j] == null)
+                    TileGenerator.AllTiles[i, j].IsBarried = false;
         }
 
         if (barrier.Heal == 1 && barrier.Type == Barrier.BarrierType.Rock)
@@ -124,32 +123,34 @@ public static class MatchManager
         });
     }
 
-    public static void ActivateBonus(Item bonus)
+    private static void ActivateBonus(Item bonus)
     {
         var destroyCounter = 0;
+        
         if (bonus.Type == Item.BonusType.Rocket)
         {
             AudioManager.PlayRocketSound();
             var rocketY = bonus.Y;
+            
             for (var i = 0; i < TileGenerator.Width; i++)
+            for (var j = 0; j < TileGenerator.Height; j++)
             {
-                for (var j = 0; j < TileGenerator.Height; j++)
-                {
-                    if (j == rocketY)
-                    {
-                        if (TileGenerator.AllBariers[i, j] != null)
-                        {
-                            HitBarrier(TileGenerator.AllBariers[i, j]);
-                            continue;
-                        }
+                if (j != rocketY)
+                    continue;
 
-                        destroyCounter++;
-                        Item ItemToDestroy = TileGenerator.AllItems[i, j];
-                        QuestsManager.UpdateItemProgress(TileGenerator.AllItems[i, j]);
-                        TileGenerator.AllItems[i, j] = null;
-                        DestroyAfterAnim(ItemToDestroy);
-                    }
+                if (TileGenerator.AllBariers[i, j] != null)
+                {
+                    HitBarrier(TileGenerator.AllBariers[i, j]);
+                    continue;
                 }
+
+                destroyCounter++;
+
+                var itemToDestroy = TileGenerator.AllItems[i, j];
+                QuestsManager.UpdateItemProgress(TileGenerator.AllItems[i, j]);
+                TileGenerator.AllItems[i, j] = null;
+
+                DestroyAfterAnim(itemToDestroy);
             }
         }
         else
@@ -157,29 +158,31 @@ public static class MatchManager
             AudioManager.PlayBombSound();
             var bombX = bonus.X;
             var bombY = bonus.Y;
+            
             for (var i = 0; i < TileGenerator.Width; i++)
+            for (var j = 0; j < TileGenerator.Height; j++)
             {
-                for (var j = 0; j < TileGenerator.Height; j++)
-                {
-                    if (i == bombX || i == bombX - 1 || i == bombX - 2 || i == bombX + 1 || i == bombX + 2)
-                    {
-                        if (j == bombY || j == bombY - 1 || j == bombY - 2 || j == bombY + 1 || j == bombY + 2)
-                        {
-                            TileGenerator.AllTiles[i, j].transform.DOShakePosition(0.3f, 0.2f);
-                            if (TileGenerator.AllBariers[i, j] != null)
-                            {
-                                HitBarrier(TileGenerator.AllBariers[i, j]);
-                                continue;
-                            }
+                if (i != bombX && i != bombX - 1 && i != bombX - 2 && i != bombX + 1 && i != bombX + 2)
+                    continue;
 
-                            Item ItemToDestroy = TileGenerator.AllItems[i, j];
-                            QuestsManager.UpdateItemProgress(TileGenerator.AllItems[i, j]);
-                            TileGenerator.AllItems[i, j] = null;
-                            DestroyAfterAnim(ItemToDestroy);
-                            destroyCounter++;
-                        }
-                    }
+                if (j != bombY && j != bombY - 1 && j != bombY - 2 && j != bombY + 1 && j != bombY + 2)
+                    continue;
+
+                TileGenerator.AllTiles[i, j].transform.DOShakePosition(0.3f, 0.2f);
+
+                if (TileGenerator.AllBariers[i, j] != null)
+                {
+                    HitBarrier(TileGenerator.AllBariers[i, j]);
+                    continue;
                 }
+
+                var itemToDestroy = TileGenerator.AllItems[i, j];
+                QuestsManager.UpdateItemProgress(TileGenerator.AllItems[i, j]);
+
+                TileGenerator.AllItems[i, j] = null;
+
+                DestroyAfterAnim(itemToDestroy);
+                destroyCounter++;
             }
         }
 
@@ -191,17 +194,11 @@ public static class MatchManager
     {
         if (SelectedItems.Count < 3)
         {
-            for (var i = 0; i < SelectedItems.Count; i++)
-            {
-                if (SelectedItems[i] != null && SelectedItems[i].IsBonus)
-                    ActivateBonus(SelectedItems[i]);
-            }
+            foreach (var item in SelectedItems.Where(item => item != null && item.IsBonus))
+                ActivateBonus(item);
 
-            for (var i = 0; i < SelectedItems.Count; i++)
-            {
-                if (SelectedItems[i] != null)
-                    SelectedItems[i].transform.DOScale(1, 0.5f);
-            }
+            foreach (var item in SelectedItems.Where(item => item != null))
+                item.transform.DOScale(1, 0.5f);
 
             SelectedItems.Clear();
             CurrentTag = null;
@@ -210,28 +207,24 @@ public static class MatchManager
         {
             PlayerControl.PlayerSteps--;
             QuestsManager.UpdateScoreProgress(SelectedItems.Count);
-            for (var i = 0; i < SelectedItems.Count; i++)
-            {
-                if (SelectedItems != null && SelectedItems[i].IsBonus)
-                    ActivateBonus(SelectedItems[i]);
-            }
+            
+            foreach (var item in SelectedItems.Where(item => SelectedItems != null && item.IsBonus))
+                ActivateBonus(item);
 
-            for (var t = 0; t < SelectedItems.Count; t++)
+            foreach (var item in SelectedItems)
             {
                 for (var i = 0; i < TileGenerator.Width; i++)
+                for (var j = 0; j < TileGenerator.Height; j++)
                 {
-                    for (var j = 0; j < TileGenerator.Height; j++)
-                    {
-                        if (SelectedItems[t] != null && SelectedItems[t] == TileGenerator.AllItems[i, j])
-                        {
-                            QuestsManager.UpdateItemProgress(TileGenerator.AllItems[i, j]);
-                            TileGenerator.AllItems[i, j] = null;
-                        }
-                    }
+                    if (item == null || item != TileGenerator.AllItems[i, j]) 
+                        continue;
+                    
+                    QuestsManager.UpdateItemProgress(TileGenerator.AllItems[i, j]);
+                    TileGenerator.AllItems[i, j] = null;
                 }
 
-                if (SelectedItems[t] != null)
-                    DestroyAfterAnim(SelectedItems[t]);
+                if (item != null)
+                    DestroyAfterAnim(item);
             }
 
             if (SelectedItems.Count >= 5 && SelectedItems.Count <= 7)
@@ -242,6 +235,7 @@ public static class MatchManager
 
             SelectedItems.Clear();
             CurrentTag = null;
+            
             CheckBarriersMatch();
             TileGenerator.FillAfterMatch();
             CheckStepAvailable();
@@ -249,7 +243,7 @@ public static class MatchManager
         }
     }
 
-    public static List<Item> ReturnNeighbours(int refx, int refy)
+    private static List<Item> ReturnNeighbours(int refx, int refy)
     {
         var neighbours = from x in Enumerable.Range(refx - 1, 3)
                          from y in Enumerable.Range(refy - 1, 3)
@@ -258,12 +252,13 @@ public static class MatchManager
         return neighbours.ToList();
     }
 
-    public static List<Item> ReturnBarrierNeighbours(int refx, int refy)
+    private static List<Item> ReturnBarrierNeighbours(int refx, int refy)
     {
         var neighbours = from x in Enumerable.Range(refx - 1, 3)
                          from y in Enumerable.Range(refy, 1)
                          where x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1)
                          select TileGenerator.AllItems[x, y];
+        
         return neighbours.Union(from x in Enumerable.Range(refx, 1)
                                 from y in Enumerable.Range(refy - 1, 3)
                                 where (x >= 0 && y >= 0 && x < TileGenerator.AllItems.GetLength(0) && y < TileGenerator.AllItems.GetLength(1))

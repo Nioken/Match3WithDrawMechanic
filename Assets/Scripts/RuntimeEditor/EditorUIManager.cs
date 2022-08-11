@@ -34,7 +34,7 @@ public class EditorUIManager : MonoBehaviour
     public Slider WidthSlider;
     public TMP_InputField StepsField;
 
-    [Header("UI Квествов")]
+    [Header("UI пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public GameObject QuestSelectUI;
     public Toggle ScoreQuestToggle;
     public Toggle ItemQuestToggle;
@@ -99,69 +99,69 @@ public class EditorUIManager : MonoBehaviour
         StepsField.onValueChanged.RemoveAllListeners();
     }
 
-    public void UpdateHeight()
+    private void UpdateHeight()
     {
         _heightText.text =
             LocalizationSettings.SelectedLocale.LocaleName == "English (en)"
             ? $"Height: {HeightSlider.value.ToString(CultureInfo.InvariantCulture)}"
 
-            : $"Высота: {HeightSlider.value.ToString(CultureInfo.InvariantCulture)}";
+            : $"пїЅпїЅпїЅпїЅпїЅпїЅ: {HeightSlider.value.ToString(CultureInfo.InvariantCulture)}";
 
         TileGenerator.Height = (int)HeightSlider.value;
     }
 
-    public void UpdateWidth()
+    private void UpdateWidth()
     {
         _widthText.text =
             LocalizationSettings.SelectedLocale.LocaleName == "English (en)"
             ? $"Width: {WidthSlider.value.ToString(CultureInfo.InvariantCulture)}" 
             
-            : $"Ширина: {WidthSlider.value.ToString(CultureInfo.InvariantCulture)}";
+            : $"пїЅпїЅпїЅпїЅпїЅпїЅ: {WidthSlider.value.ToString(CultureInfo.InvariantCulture)}";
 
         TileGenerator.Width = (int)WidthSlider.value;
     }
 
-    public void UpdateSteps()
+    private void UpdateSteps()
     {
         EditorTileGenerator.Steps = Convert.ToInt32(StepsField.text);
     }
 
-    public void UpdateCurrentBarrier(Barrier barrier)
+    private void UpdateCurrentBarrier(Barrier barrier)
     {
         EditorTileGenerator.CurrentBarrier = barrier;
     }
 
-    public void ToMenu()
+    private void ToMenu()
     {
         SceneManager.LoadScene("MenuScene");
     }
 
-    public void ShowQuestSelect()
+    private void ShowQuestSelect()
     {
         QuestSelectUI.SetActive(true);
     }
-    
-    public void UpdateScoreQuestToggle()
+
+    private void UpdateScoreQuestToggle()
     {
         _levelConfig.ScoreQuest = ScoreQuestToggle.isOn;
-    } 
+    }
 
-    public void UpdateItemQuestToggle()
+    private void UpdateItemQuestToggle()
     {
         _levelConfig.ItemQuest = ItemQuestToggle.isOn;
     }
 
-    public void UpdateBarrierQuestToggle()
+    private void UpdateBarrierQuestToggle()
     {
         _levelConfig.BarrierQuest = BarrierQuestToggle.isOn;
     }
 
-    public void HideQuestSelect()
+    private void HideQuestSelect()
     {
         QuestSelectUI.SetActive(false);
     }
 
-    public void PlayWithConfig()
+    private void PlayWithConfig()
     {
         SceneManager.LoadScene("GameScene");
     }

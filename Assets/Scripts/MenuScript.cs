@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 public class MenuScript : MonoBehaviour
 {
-    [Header("UI Элементы")]
+    [Header("UI пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     [SerializeField] private Button RandomLevelButton;
     [SerializeField] private Button ConfigureLevelButton;
     [SerializeField] private Button RussianLanguageButton;
@@ -50,23 +50,23 @@ public class MenuScript : MonoBehaviour
         EnglishLanguageButton.onClick.AddListener(SetEnglishLanguage);
     }
 
-    public void SetRussinLanguage()
+    private void SetRussinLanguage()
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
         Settings.Language = "ru";
     }
 
-    public void SetEnglishLanguage()
+    private void SetEnglishLanguage()
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
         Settings.Language = "en";
     }
 
-    public void SetLastConfig()
+    private void SetLastConfig()
     {
         try
         {
-            using (StreamReader sr = new StreamReader(Application.persistentDataPath + "/Tiles.json"))
+            using (var sr = new StreamReader(Application.persistentDataPath + "/Tiles.json"))
             {
                 if (sr != null)
                 {
@@ -74,25 +74,23 @@ public class MenuScript : MonoBehaviour
                     _levelConfig.IsConfigured = true;
                 }
             }
-            using (StreamReader sr = new StreamReader(Application.persistentDataPath + "/Barriers.json"))
-            {
+            
+            using (var sr = new StreamReader(Application.persistentDataPath + "/Barriers.json"))
                 if (sr != null)
-                {
                     _levelConfig.AllBariers = JsonConvert.DeserializeObject<LevelConfig.BarrierInfo[,]>(sr.ReadToEnd());
-                }
-            }
-            using (StreamReader sr = new StreamReader(Application.persistentDataPath + "/LevelInfo.json"))
+            
+            using (var sr = new StreamReader(Application.persistentDataPath + "/LevelInfo.json"))
             {
-                if (sr != null)
-                {
-                    LevelConfig.LevelInfo info = JsonConvert.DeserializeObject<LevelConfig.LevelInfo>(sr.ReadToEnd());
-                    _levelConfig.X = info.X;
-                    _levelConfig.Y = info.Y;
-                    _levelConfig.Steps = info.Steps;
-                    _levelConfig.ItemQuest = info.ItemQuest;
-                    _levelConfig.ScoreQuest = info.ScoreQuest;
-                    _levelConfig.BarrierQuest = info.BarrierQuest;
-                }
+                if (sr == null)
+                    return;
+                
+                var info = JsonConvert.DeserializeObject<LevelConfig.LevelInfo>(sr.ReadToEnd());
+                _levelConfig.X = info.X;
+                _levelConfig.Y = info.Y;
+                _levelConfig.Steps = info.Steps;
+                _levelConfig.ItemQuest = info.ItemQuest;
+                _levelConfig.ScoreQuest = info.ScoreQuest;
+                _levelConfig.BarrierQuest = info.BarrierQuest;
             }
         }
         catch (System.Exception)
@@ -101,13 +99,13 @@ public class MenuScript : MonoBehaviour
         }
     }
 
-    public void PlayRandomLevel()
+    private void PlayRandomLevel()
     {
         _levelConfig.IsConfigured = false;
         SceneManager.LoadScene("GameScene");
     }
 
-    public void ConfigureLevel()
+    private void ConfigureLevel()
     {
         SceneManager.LoadScene("EditorScene");
     }

@@ -48,34 +48,31 @@ public class PlayerControl : MonoBehaviour
 
     private bool CanSelect(Collider itemCollider)
     {
-        if (itemCollider.tag.Contains("Item") || itemCollider.CompareTag("Bonus"))
-            if (itemCollider.CompareTag("Bonus") || itemCollider.CompareTag(MatchManager.CurrentTag))
-                return true;
-
-        return false;
+        if (!itemCollider.tag.Contains("Item") && !itemCollider.CompareTag("Bonus"))
+            return false;
+        
+        return itemCollider.CompareTag("Bonus") || itemCollider.CompareTag(MatchManager.CurrentTag);
     }
 
     private void InputItemsCast()
     {
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out _hit))
+        if (!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out _hit))
+            return;
+        
+        SetCurrentTag(_hit.collider.tag);
+        if (!CanSelect(_hit.collider)) return;
+        var hitedItem = TileGenerator.ReturnItem(_hit.collider.gameObject);
+        if (!MatchManager.SelectedItems.Contains(hitedItem)) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
-            SetCurrentTag(_hit.collider.tag);
-            if (CanSelect(_hit.collider))
-            {
-                Item hitedItem = TileGenerator.ReturnItem(_hit.collider.gameObject);
-                if (!MatchManager.SelectedItems.Contains(hitedItem)) // Добавление токенов в цепочку
-                {
-                    if (MatchManager.SelectedItems.Count > 0 && !MatchManager.CheckNear(hitedItem))
-                        return;
+            if (MatchManager.SelectedItems.Count > 0 && !MatchManager.CheckNear(hitedItem))
+                return;
 
-                    SelectItem(hitedItem);
-                }
-                else // Удаление токенов из цепочки
-                {
-                    if (MatchManager.SelectedItems.Count > 1 && MatchManager.SelectedItems.IndexOf(hitedItem) != MatchManager.SelectedItems.Count - 1)
-                        UnselectItems(MatchManager.SelectedItems.IndexOf(hitedItem) + 1);
-                }
-            }
+            SelectItem(hitedItem);
+        }
+        else // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        {
+            if (MatchManager.SelectedItems.Count > 1 && MatchManager.SelectedItems.IndexOf(hitedItem) != MatchManager.SelectedItems.Count - 1)
+                UnselectItems(MatchManager.SelectedItems.IndexOf(hitedItem) + 1);
         }
     }
 
@@ -86,14 +83,14 @@ public class PlayerControl : MonoBehaviour
         _uiManager.UpdateSteps(PlayerSteps);
         if (PlayerSteps == 0)
         {
-            if (QuestsManager.isQuestsCompleted())
+            if (QuestsManager.IsQuestsCompleted())
                 _uiManager.ShowWinUI();
             else
                 _uiManager.ShowLoseUI();
         }
         else
         {
-            if (QuestsManager.isQuestsCompleted())
+            if (QuestsManager.IsQuestsCompleted())
                 _uiManager.ShowWinUI();
         }
     }
@@ -107,7 +104,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            if (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Moved)
+            if (Input.touches[0].phase is TouchPhase.Began or TouchPhase.Moved)
                 InputItemsCast();
 
             if (Input.touches[0].phase == TouchPhase.Ended)

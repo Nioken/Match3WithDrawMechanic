@@ -77,7 +77,9 @@ public class EditorTileGenerator : TileGenerator
 
         AllTiles = new Tile[Width, Height];
         AllBariers = new Barrier[Width, Height];
+        
         SearchStartPosition();
+        
         for (var i = 0; i < Width; i++)
         {
             for (var j = 0; j < Height; j++)

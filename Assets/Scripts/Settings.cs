@@ -40,24 +40,24 @@ public static class Settings
 
     public static void WriteSettings()
     {
-        using (StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/Settings.json"))
+        using (var sw = new StreamWriter(Application.persistentDataPath + "/Settings.json"))
         {
-            string SerializeConfig = JsonConvert.SerializeObject(new SettingsValues(IsMusic, IsSounds, Language));
-            sw.Write(SerializeConfig);
+            var serializeConfig = JsonConvert.SerializeObject(new SettingsValues(IsMusic, IsSounds, Language));
+            sw.Write(serializeConfig);
         }
     }
 
     private static void ReadSettings()
     {
-        using (StreamReader sr = new StreamReader(Application.persistentDataPath + "/Settings.json"))
+        using (var sr = new StreamReader(Application.persistentDataPath + "/Settings.json"))
         {
-            if (sr != null)
-            {
-                var settingsValues = JsonConvert.DeserializeObject<SettingsValues>(sr.ReadToEnd());
-                IsMusic = settingsValues.IsMusic;
-                IsSounds = settingsValues.IsSounds;
-                Language = settingsValues.Language;
-            }
+            if(sr == null)
+                return;
+            
+            var settingsValues = JsonConvert.DeserializeObject<SettingsValues>(sr.ReadToEnd());
+            IsMusic = settingsValues.IsMusic;
+            IsSounds = settingsValues.IsSounds;
+            Language = settingsValues.Language;
         }
     }
 }

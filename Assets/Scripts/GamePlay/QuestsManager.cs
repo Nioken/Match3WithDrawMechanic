@@ -11,7 +11,7 @@ public class QuestsManager : MonoBehaviour
     public const int ScoreProgressMultiplyer = 8;
     public const int ItemsProgressMultiplyer = 2;
 
-    public static QuestsManager _questsManager;
+    private static QuestsManager _questsManager;
     public static List<Quest> Quests = new List<Quest>();
 
     private void OnEnable()
@@ -23,26 +23,26 @@ public class QuestsManager : MonoBehaviour
     {
         Quests.Add(Instantiate(_questsManager._scoreQuestPrefab, _questsManager._uiCanvas.transform.GetChild(1))
             .GetComponent<Quest>());
-        Quests[Quests.Count - 1].Type = Quest.QuestType.ScoreQuest;
-        Quests[Quests.Count - 1].MaxProgress = maxProgress;
-        Quests[Quests.Count - 1].GetComponent<RectTransform>().anchoredPosition = 
+        Quests[^1].Type = Quest.QuestType.ScoreQuest;
+        Quests[^1].MaxProgress = maxProgress;
+        Quests[^1].GetComponent<RectTransform>().anchoredPosition = 
             new Vector2(10, 640 - (110 * Quests.Count - 2));
     }  
     
     public static void UpdateScoreProgress(int progress)
     {
-        for (var i = 0; i < Quests.Count; i++)
-        {
-            if (Quests[i].Type == Quest.QuestType.ScoreQuest)
-                Quests[i].UpdateQuestProgress(progress);
-        }
+        foreach (var quest in Quests)
+            if (quest.Type == Quest.QuestType.ScoreQuest)
+                quest.UpdateQuestProgress(progress);
     }
     
     public static void SpawnItemQuest(int maxProgress)
     {
         Quests.Add(Instantiate(_questsManager._itemQuestPrefab, _questsManager._uiCanvas.transform.GetChild(1))
             .GetComponent<Quest>());
-        var spawnedQuest = Quests[Quests.Count - 1];
+        
+        var spawnedQuest = Quests[^1];
+        
         spawnedQuest.Type = Quest.QuestType.ItemQuest;
         spawnedQuest.MaxProgress = maxProgress;
         spawnedQuest.GetComponent<RectTransform>().anchoredPosition = 
@@ -51,18 +51,18 @@ public class QuestsManager : MonoBehaviour
 
     public static void UpdateItemProgress(Item item)
     {
-        for (var i = 0; i < Quests.Count; i++)
-        {
-            if (Quests[i].Type == Quest.QuestType.ItemQuest && Quests[i].TagToCount == item.tag)
-                Quests[i].UpdateQuestProgress(1);
-        }
+        foreach (var quest in Quests)
+            if (quest.Type == Quest.QuestType.ItemQuest && quest.TagToCount == item.tag)
+                quest.UpdateQuestProgress(1);
     }
 
     public static void SpawnBariersQuest()
     {
         Quests.Add(Instantiate(_questsManager._bariersQuestPrefab, _questsManager._uiCanvas.transform.GetChild(1))
             .GetComponent<Quest>());
-        var spawnedQuest = Quests[Quests.Count - 1];
+        
+        var spawnedQuest = Quests[^1];
+        
         spawnedQuest.Type = Quest.QuestType.BarrierQuest;
         spawnedQuest.GetComponent<RectTransform>().anchoredPosition =
             new Vector2(10, 640 - (110 * Quests.Count - 2));
@@ -70,23 +70,19 @@ public class QuestsManager : MonoBehaviour
     
     public static void UpdateBarrierProgress(Barrier barrier)
     {
-        for (var i = 0; i < Quests.Count; i++)
-        {
-            if (Quests[i].Type == Quest.QuestType.BarrierQuest && Quests[i].BarrierToCount == barrier.Type)
-                Quests[i].UpdateQuestProgress(1);
-        }
+        foreach (var quest in Quests)
+            if (quest.Type == Quest.QuestType.BarrierQuest && quest.BarrierToCount == barrier.Type)
+                quest.UpdateQuestProgress(1);
     }
 
-    public static bool isQuestsCompleted()
+    public static bool IsQuestsCompleted()
     {
         if(Quests.Count <= 0)
             return false;
 
-        for(var i = 0; i < Quests.Count; i++)
-        {
-            if (!Quests[i].Complete)
+        foreach (var quest in Quests)
+            if (!quest.Complete)
                 return false;
-        }
 
         return true;
     }
